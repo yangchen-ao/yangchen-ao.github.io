@@ -176,7 +176,7 @@
 <li>本科/莫不知名大学/伪计算机专业</li>
 <li>大一</li>
 <li>博客地址：xiaowog.top</li>
-<li>Email:  <a class="link" href="mailto:&#50;&#57;&#x31;&#49;&#53;&#x35;&#52;&#48;&#x31;&#x33;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#50;&#57;&#x31;&#49;&#53;&#x35;&#52;&#48;&#x31;&#x33;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></li>
+<li>Email:  <a class="link" href="mailto:&#50;&#x39;&#x31;&#x31;&#53;&#53;&#x34;&#48;&#x31;&#51;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#50;&#x39;&#x31;&#x31;&#53;&#53;&#x34;&#48;&#x31;&#51;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></li>
 <li>现居：湖北武汉/山东烟台</li>
 <li>qq：2911554013</li>
 <li>微信：asd_184129</li>
@@ -201,66 +201,44 @@
 
         
             
-    <div class="valine-container">
-        <script data-pjax
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script data-pjax>
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 'n3qx2Q6Tvi56bdDdTimejgIJ-MdYXbMMI',
-                    appKey: 'Uv7raujglSCC8s3D0KLsNB1c',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: '😜 尽情吐槽吧~',
-                    lang: 'zh-CN'.toLowerCase()
-                });
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
 
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
-
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = '薛丰琉';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
             }
 
-            if ('true') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'cddfa53ccaf70f707bcc',
+                    clientSecret: '79a7c06b16924ca3ddb59a8c9326e5abb776f371',
+                    repo: 'blog-talk',
+                    owner: 'yangchen-ao',
+                    admin: ['yangchen-ao'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
             }
-        </script>
-    </div>
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
 
 
 

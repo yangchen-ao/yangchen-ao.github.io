@@ -258,7 +258,7 @@
 <p><img lazyload src="/images/loading.svg" data-src="hexo8.png" alt="8"></p>
 <p>然后将记事本复制的内容复制到框中，点击确认保存。</p>
 <p><img lazyload src="/images/loading.svg" data-src="hexo9.png" alt="9"></p>
-<p>然后到git控制台中输入<em><strong>ssh -T  <a class="link" href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;<i class="fas fa-external-link-alt"></i></a></strong></em>，第一次提示输入yes，然后如果出现你的用户名，那就成功了，如下图示。</p>
+<p>然后到git控制台中输入<em><strong>ssh -T  <a class="link" href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#109;<i class="fas fa-external-link-alt"></i></a></strong></em>，第一次提示输入yes，然后如果出现你的用户名，那就成功了，如下图示。</p>
 <p><img lazyload src="/images/loading.svg" data-src="hexo10.png" alt="10"></p>
 <h3 id="配置并上传网站"><a href="#配置并上传网站" class="headerlink" title="配置并上传网站"></a><strong>配置并上传网站</strong></h3><p>打开博客目录下的**_config.yml**文件，这是博客的配置文件，在这里你可以修改博客的相关信息，现在，只修改最后一行配置：</p>
 <p><img lazyload src="/images/loading.svg" data-src="hexo11.png" alt="11"></p>
@@ -320,66 +320,44 @@
 
         
             
-    <div class="valine-container">
-        <script data-pjax
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script data-pjax>
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 'n3qx2Q6Tvi56bdDdTimejgIJ-MdYXbMMI',
-                    appKey: 'Uv7raujglSCC8s3D0KLsNB1c',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: '😜 尽情吐槽吧~',
-                    lang: 'zh-CN'.toLowerCase()
-                });
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
 
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
-
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = '薛丰琉';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
             }
 
-            if ('true') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'cddfa53ccaf70f707bcc',
+                    clientSecret: '79a7c06b16924ca3ddb59a8c9326e5abb776f371',
+                    repo: 'blog-talk',
+                    owner: 'yangchen-ao',
+                    admin: ['yangchen-ao'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
             }
-        </script>
-    </div>
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
 
 
 
