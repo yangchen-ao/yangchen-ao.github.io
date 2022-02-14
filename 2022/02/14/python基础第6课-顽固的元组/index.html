@@ -9,7 +9,7 @@
     
     <title>
         
-            Hexo-Github搭建个人博客（上） |
+            python基础第6课-顽固的元组 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hexo-Github搭建个人博客（上）</span>
+            <span class="title-hover-animation">python基础第6课-顽固的元组</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-01-30 15:02:09</span>
-        <span class="mobile">2022-01-30 15:02</span>
+        <span class="pc">2022-02-14 21:24:53</span>
+        <span class="mobile">2022-02-14 21:24</span>
     </span>
     
     
@@ -198,7 +198,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/hexo/">hexo</a>&nbsp;
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/">python基础</a>&nbsp;
                     </li>
                 
             </ul>
@@ -213,7 +213,7 @@
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
         </span>
     
     
@@ -229,50 +229,34 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a><strong>安装Node.js</strong></h3><p>先下载<a class="link" target="_blank" rel="noopener" href="https://nodejs.org/en/download/">稳定版<i class="fas fa-external-link-alt"></i></a>（LTS），安装选项选默认（想改路径可以），一路Next。</p>
-<p>安装好之后，按<strong>win+R</strong>输入<em><strong>cmd</strong></em>打开命令提示符，输入<em><strong>node -v</strong></em>和<em><strong>npm -v</strong></em>，如果出现版本号，则安装就完成了</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a><strong>安装Git</strong></h3><p>为了把本地文件上传到Github上面去，我们需要分布式版本控制工具———<a class="link" target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git<i class="fas fa-external-link-alt"></i></a></p>
-<p>安装选项还是默认，路径随意，安装完成之后，打开命令提示符，输入<em><strong>git -v</strong></em>，如果不报错，则证明安装成功。</p>
-<h3 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a><strong>注册Github账号</strong></h3><p>打开<a class="link" target="_blank" rel="noopener" href="https://github.com/">官网<i class="fas fa-external-link-alt"></i></a>，注册流程很简单，注册完成登录。</p>
-<p>注意：网站有时不好使，因为是在国内访问的原因，如果无法打开，则等待几个小时后在去访问，或者有能力的可以了解科学上网（私聊博主可获取秘密武器哦）</p>
-<p>新建一个项目，如图所示：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo1.png" alt="1"></p>
-<p>输入项目名，名称一定要和你的GitHub名字一样，后面要加.github.io，README的初始化最好也点上，如图所示：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo2.png" alt="2"></p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h3><p>在一个合适的地方新建一个文件夹，用来存放自己的博客文件，在该目录下右击，点<strong>Git Bash Here</strong>，打开git控制台窗口，<u>以后我们所有的操作将都在git控制台进行</u>。在控制台中输入 <em><strong>npm i hexo-cli -g</strong></em> 安装Hexo。</p>
-<p>安装完后输入<em><strong>hexo -v</strong></em>验证是否安装成功。</p>
-<p>然后就要初始化我们的网站，输入<em><strong>hexo init blog</strong></em>初始化文件，接着输入<em><strong>cd blog</strong></em> ，然后输入<em><strong>npm install</strong></em>安装必备的组件。</p>
-<p>这样本地的网站配置也弄好了，输入<em><strong>hexo g</strong></em>生成静态网页，然后输入<em><strong>hexo s</strong></em>打开本地服务器，然后浏览器访问<a class="link" target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/<i class="fas fa-external-link-alt"></i></a> ，就可以看到我们的熟悉的Hello World了，效果如下：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo3.png" alt="3"></p>
-<p>返回控制台按<strong>ctrl+c</strong>关闭本地服务器</p>
-<h3 id="连接Github与本地"><a href="#连接Github与本地" class="headerlink" title="连接Github与本地"></a><strong>连接Github与本地</strong></h3><p>首先在任意地方右击打开 <strong>Git Bash Here</strong>，然后输入下面的命令：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo4.png" alt="4"></p>
-<p>注意：用户名和邮箱请修改成你GitHub的消息，name和email后有空格</p>
-<p>输入如下命令，按三次回车，然后生成密钥SSH key</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo5.png" alt="5"></p>
-<p>然后到上面提示的地址里用记事本打开id_rsa.pub，复制里面的内容</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo6.png" alt="6"></p>
-<p>打开<a class="link" target="_blank" rel="noopener" href="https://github.com/">GitHub<i class="fas fa-external-link-alt"></i></a> ，头像下面点击<strong>Setting</strong>，</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo7.png" alt="7"></p>
-<p>再点击<strong>SSH and GPG keys</strong>，新建一个SSH，名字随便起。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo8.png" alt="8"></p>
-<p>然后将记事本复制的内容复制到框中，点击确认保存。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo9.png" alt="9"></p>
-<p>然后到git控制台中输入<em><strong>ssh -T  <a class="link" href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;<i class="fas fa-external-link-alt"></i></a></strong></em>，第一次提示输入yes，然后如果出现你的用户名，那就成功了，如下图示。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo10.png" alt="10"></p>
-<h3 id="配置并上传网站"><a href="#配置并上传网站" class="headerlink" title="配置并上传网站"></a><strong>配置并上传网站</strong></h3><p>打开博客目录下的**_config.yml**文件，这是博客的配置文件，在这里你可以修改博客的相关信息，现在，只修改最后一行配置：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo11.png" alt="11"></p>
-<p>将<strong>respository</strong>修改为你自己的GitHub项目地址(ssh)。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo12.png" alt="12"></p>
-<p>然后返回文件夹中右击打开git控制台，输入<em><strong>npm install hexo-deployer-git –save</strong></em>,安装git插件，</p>
-<p>然后输入<em><strong>hexo g</strong></em>和<em><strong>hexo d</strong></em>上传到GitHub上。这是你打开你的io主页就能看到你上传的博客网站了。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo13.png" alt="13"></p>
-<h3 id="绑定域名（没有可忽略，直接用io网址访问即可）"><a href="#绑定域名（没有可忽略，直接用io网址访问即可）" class="headerlink" title="绑定域名（没有可忽略，直接用io网址访问即可）"></a><strong>绑定域名（没有可忽略，直接用io网址访问即可）</strong></h3><p>想要更换域名，可以自己到卖域名的平台买个域名，XX云都能买。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo14.png" alt="14"></p>
-<p>然后买完之后，点击解析，添加两条解析记录，第二条，主机记录为www，记录类型为CNAME，记录值为你GitHub项目page里的那个地址，然后第一条，主机记录为@，记录类型为A，记录值为你通过命令提示符窗口ping第二条记录值得到的ip！！</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo15.png" alt="15"></p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo16.png" alt="16"></p>
-<p>打开你本地博客目录中source文件夹，新建文本文件，然后在里面写上你的域名，保存，然后重命名删除后缀。最后运行<em><strong>hexo g</strong></em>和<em><strong>hexo d</strong></em>上传到github。</p>
+            <h3 id="顽固的元组"><a href="#顽固的元组" class="headerlink" title="顽固的元组"></a>顽固的元组</h3><p>元组和列表一样，也是一种序列。但元组的元素不能修改。</p>
+<h4 id="元组的创建"><a href="#元组的创建" class="headerlink" title="元组的创建"></a>元组的创建</h4><h5 id="最基本的创建"><a href="#最基本的创建" class="headerlink" title="最基本的创建"></a>最基本的创建</h5><p>通过()创建元组，小括号可以省略。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=1,2,3,4,5,6,7 #创建一个元组 省略了括号 </span><br><span class="line">b=(1,2,3,4,5,6,7) #创建一个元组 </span><br><span class="line">c=(42,) #创建一个只有一个元素值的元组 </span><br><span class="line">d=() #创建一个空的元组 </span><br><span class="line">print(a) </span><br><span class="line">print(b) </span><br><span class="line">print(c)</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
+
+<h5 id="通过-tuple-创建元组"><a href="#通过-tuple-创建元组" class="headerlink" title="通过 tuple()创建元组"></a>通过 tuple()创建元组</h5><p>tuple 函数的功能与 list 函数基本上是一样的。以一个序列作为参数并把它转换为元祖。如果元素的参数就是元祖，那么该参数就会被原样返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#使用 tuple()函数创建元组 </span><br><span class="line">a=tuple(&quot;abc&quot;) </span><br><span class="line">b=tuple(range(3)) </span><br><span class="line">c=tuple((1,2,3,4,5)) </span><br><span class="line">print(a) </span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+
+<h5 id="元组的基本操作"><a href="#元组的基本操作" class="headerlink" title="元组的基本操作"></a>元组的基本操作</h5><p>元组的元素不能修改，但可以转换成列表进行修改元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">a[3]=33 #修改元组中的元素，报错</span><br><span class="line">a = list(a)</span><br><span class="line">a[3]=33 #修改成功</span><br><span class="line">print(a) #输出为[20,10,33,9,8]</span><br></pre></td></tr></table></figure>
+
+<h4 id="zip创建"><a href="#zip创建" class="headerlink" title="zip创建"></a>zip创建</h4><p>zip(列表 1，列表 2，…)将多个列表对应位置的元素组合成为元组，并返回这个 zip 对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [10,20,30] </span><br><span class="line">b = [40,50,60] </span><br><span class="line">c = [70,80,90] </span><br><span class="line">d = zip(a,b,c) </span><br><span class="line">print(tuple(d))</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成器推导式创建元组"><a href="#生成器推导式创建元组" class="headerlink" title="生成器推导式创建元组"></a>生成器推导式创建元组</h4><p>从形式上看，生成器推导式与列表推导式类似，只是生成器推导式使用小括号。列表推导式直接生成列表对象，生成器推导式生成的不是列表也不是元组，而是一个生成器对象。通过生成器对象，转化成列表或者元组。</p>
+<p>也可以使用生成器对象的<code>__next__()</code>方法进行遍历，或者直接作为迭代器对象来使用。不管什么方式使用，元素访问结束后，如果需要重新访问其中的元素，必须重新创建该生成器对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 请注意下面的代码创建的不是一个元组而是一个生成器对象</span><br><span class="line"># 通过生成器可以获取到数据但它不占用额外的空间存储数据</span><br><span class="line"># 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)</span><br><span class="line">import sys</span><br><span class="line">f = (x ** 2 for x in range(1, 1000))</span><br><span class="line">print(sys.getsizeof(f))  # 相比生成式生成器不占用存储数据的空间</span><br><span class="line">print(f) #生成器对象 </span><br><span class="line">for val in f:</span><br><span class="line">    print(val) # 访问完成需要再次创建</span><br><span class="line">print(list(f)) #空列表</span><br><span class="line"></span><br><span class="line">s = (x*2 for x in range(5)) </span><br><span class="line">print(tuple(s)) #tuple 函数转换为元组</span><br><span class="line"></span><br><span class="line">s = (x*2 for x in range(5))</span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__()) </span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__()) </span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__())</span><br></pre></td></tr></table></figure>
+
+<p>除了上面提到的生成器语法，Python中还有另外一种定义生成器的方式，就是通过<code>yield</code>关键字将一个普通函数改造成生成器函数。下面的代码演示了如何实现一个生成<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波拉切数列<i class="fas fa-external-link-alt"></i></a>的生成器。所谓斐波拉切数列可以通过下面<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92">递归<i class="fas fa-external-link-alt"></i></a>的方法来进行定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for _ in range(n):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        yield a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for val in fib(20):</span><br><span class="line">        print(val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h4 id="元组的访问"><a href="#元组的访问" class="headerlink" title="元组的访问"></a>元组的访问</h4><p>元组的元素访问和列表一样，只不过返回的仍然是元组对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">print(a[1]) </span><br><span class="line">print(a[1:3]) </span><br><span class="line">print(a[:4])</span><br><span class="line">for i in a:</span><br><span class="line">	print(i) #元组遍历</span><br></pre></td></tr></table></figure>
+
+<p>列表关于排序的方法 list.sort()是修改原列表对象，元组没有该方法。如果要对元组排序，只能使用内置函数 sorted(tupleObj)，并生成新的列表对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">print(sorted(a))</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>元组在创建时间和占用的空间上面都优于列表。</p>
+<p>如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</p>
 
         </div>
 
@@ -282,7 +266,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/hexo/">#hexo</a>&nbsp;
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/">#python基础</a>&nbsp;
                     </li>
                 
             </ul>
@@ -291,21 +275,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/01/30/Hexo%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%EF%BC%881%EF%BC%89/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/11/python%E5%9F%BA%E7%A1%80%E7%AC%AC5%E8%AF%BE-%E5%88%97%E8%A1%A8/"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hexo博客遇到的坑（1）</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-title-item">python基础第5课-列表</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -493,7 +477,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CGithub%E8%B4%A6%E5%8F%B7"><span class="nav-text">注册Github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5Github%E4%B8%8E%E6%9C%AC%E5%9C%B0"><span class="nav-text">连接Github与本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%B8%8A%E4%BC%A0%E7%BD%91%E7%AB%99"><span class="nav-text">配置并上传网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E6%B2%A1%E6%9C%89%E5%8F%AF%E5%BF%BD%E7%95%A5%EF%BC%8C%E7%9B%B4%E6%8E%A5%E7%94%A8io%E7%BD%91%E5%9D%80%E8%AE%BF%E9%97%AE%E5%8D%B3%E5%8F%AF%EF%BC%89"><span class="nav-text">绑定域名（没有可忽略，直接用io网址访问即可）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BD%E5%9B%BA%E7%9A%84%E5%85%83%E7%BB%84"><span class="nav-text">顽固的元组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">元组的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">最基本的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-tuple-%E5%88%9B%E5%BB%BA%E5%85%83%E7%BB%84"><span class="nav-text">通过 tuple()创建元组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">元组的基本操作</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zip%E5%88%9B%E5%BB%BA"><span class="nav-text">zip创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%85%83%E7%BB%84"><span class="nav-text">生成器推导式创建元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-text">元组的访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
