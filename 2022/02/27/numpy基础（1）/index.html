@@ -9,7 +9,7 @@
     
     <title>
         
-            关于 |
+            numpy基础（1） |
         
         小薛的储物间
     </title>
@@ -89,7 +89,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/about"
                             >
                                 关于
@@ -141,7 +141,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/about">关于</a>
                 </li>
             
@@ -166,32 +166,148 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="page-template-container">
-        
-        
-        <div class="page-template-content markdown-body">
-            
-                <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
-<li>薛丰琉/男/2003.07.10</li>
-<li>本科/某不知名大学/伪计算机专业</li>
-<li>大一</li>
-<li>博客地址：xiaowog.top</li>
-<li>Email:  <a class="link" href="mailto:&#x32;&#x39;&#49;&#49;&#53;&#x35;&#x34;&#48;&#49;&#x33;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#x32;&#x39;&#49;&#49;&#53;&#x35;&#x34;&#48;&#49;&#x33;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></li>
-<li>现居：湖北武汉/山东烟台</li>
-<li>qq：2911554013</li>
-<li>微信：asd_184129</li>
-</ul>
-<h3 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h3><ul>
-<li>后端：python</li>
-<li>前端：HTML5/CSS3</li>
-<li>框架：Django</li>
-</ul>
-<p><strong>|</strong> 良辰美景奈何天，为己辛苦为己甜。</p>
+    <div class="article-content-container">
 
-            
+        <div class="article-title">
+            <span class="title-hover-animation">numpy基础（1）</span>
         </div>
-        <div class="page-template-comments">
-            
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/tou.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">薛丰琉</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-02-27 15:20:16</span>
+        <span class="mobile">2022-02-27 15:20</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>601 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h3><p>numpy数据类型（ndarray）的优点：</p>
+<ul>
+<li>Numpy 的数据储存在连续的内存块上。</li>
+<li>算法库是有c语言编写的，运行时间少，无需检查类型和其他操作。</li>
+<li>全局数组进行复杂计算无需循环</li>
+<li>内存量小。</li>
+</ul>
+<h4 id="ndarray的创建"><a href="#ndarray的创建" class="headerlink" title="ndarray的创建"></a>ndarray的创建</h4><h5 id="array函数的创建"><a href="#array函数的创建" class="headerlink" title="array函数的创建"></a>array函数的创建</h5><p>array函数可以把任意的序列型对象转换成ndarray数组。通过复制来创建ndarray数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建一维数组</span><br><span class="line">data0 = np.array([1,2,3,1])</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建二维数组，嵌套序列（序列元素的长度相同）</span><br><span class="line">data1 = np.array([[1,2,3,4],[5,6,7,8]])</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
+
+<h5 id="asarray函数创建"><a href="#asarray函数创建" class="headerlink" title="asarray函数创建"></a>asarray函数创建</h5><p>类似于array，同样是将输入数据转换成ndarray数组。但如何输入已经是ndarray数据则不再进行复制。</p>
+<h5 id="arange函数创建"><a href="#arange函数创建" class="headerlink" title="arange函数创建"></a>arange函数创建</h5><p>arange类似于range，但arange返回值类型为ndarray数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建一维数组[0，1，2，3，4，5]</span><br><span class="line">data = np.arange(6)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.arange(start,end,step)</span><br><span class="line"># 起始于start，不包含end。start默认为0，step默认为1.</span><br></pre></td></tr></table></figure>
+
+<h5 id="特殊创建"><a href="#特殊创建" class="headerlink" title="特殊创建"></a>特殊创建</h5><p>ones，zeros，empy函数分别创建全为1，全为0，和没有初始值的数组。</p>
+<p><strong>如果想要创建高维数组，需要给shape传递一个元组（创建一维数组时也可以用元组）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建含十个元素的一维数组</span><br><span class="line">data1 = np.ones((10))</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建3行6列的二维数组</span><br><span class="line">data0 = np.zeros((3, 6))</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建3行5列的二维数组</span><br><span class="line">data_kong = np.empty((3, 5))</span><br><span class="line">print(data_kong)</span><br></pre></td></tr></table></figure>
+
+<p>注意：empty函数创建未初始化的数组，有可能返回垃圾值。</p>
+<h4 id="ndarray的属性"><a href="#ndarray的属性" class="headerlink" title="ndarray的属性"></a>ndarray的属性</h4><h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>属性dtype，是一个特殊的对象—元数据(数据类型)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([1,2,3,4],dtype=np.float64)</span><br><span class="line">arr2 = np.array([1,2,3,4],dtype=np.int32)</span><br><span class="line">print(arr1.dtype)</span><br><span class="line">print(arr2.dtype)</span><br></pre></td></tr></table></figure>
+
+<p>dtype给强语言带来了”类型定义“</p>
+<p>可以通过<code>astype</code>进行数据类型的转换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([1,2,3,4],dtype=np.int32)</span><br><span class="line">print(arr.dtype)</span><br><span class="line"></span><br><span class="line">float_arr = arr.astype(np.float64)</span><br><span class="line">print(float.dtype)</span><br></pre></td></tr></table></figure>
+
+<p>注意：从浮点数转换成整数，会直接舍弃小数点的。</p>
+<p>也可以把只是数字组成的字符串组成的元素转换成数字：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numeric_strings = np.array([&#x27;1.25&#x27;,&#x27;-9.6&#x27;,&#x27;42&#x27;],dtype=np.string_)</span><br><span class="line">numeric_strings.astype(np.float64)</span><br></pre></td></tr></table></figure>
+
+<p>尽量避免数据类型为numpy.string_，因为numpy会修正他的大小或和删除输入且不发出警告。后面的pandas会更好的处理这种情况。</p>
+<p>暂时到这。。。。</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/25/anaconda%E9%97%AE%E9%A2%98/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">anaconda问题</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
                 <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
@@ -246,8 +362,8 @@
     
 </div>
 
-            
-        </div>
+            </div>
+        
     </div>
 </div>
 
@@ -294,6 +410,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -348,6 +485,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy"><span class="nav-text">numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ndarray%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">ndarray的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#array%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">array函数的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#asarray%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="nav-text">asarray函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#arange%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="nav-text">arange函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%88%9B%E5%BB%BA"><span class="nav-text">特殊创建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ndarray%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">ndarray的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -405,6 +550,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 
