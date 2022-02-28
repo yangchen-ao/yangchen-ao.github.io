@@ -9,7 +9,7 @@
     
     <title>
         
-            python踩坑合集（1） |
+            numpy基础（2） |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">python踩坑合集（1）</span>
+            <span class="title-hover-animation">numpy基础（2）</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-08 17:11:10</span>
-        <span class="mobile">2022-02-08 17:11</span>
+        <span class="pc">2022-02-28 08:32:25</span>
+        <span class="mobile">2022-02-28 08:32</span>
     </span>
     
     
@@ -198,7 +198,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/python%E5%9D%91/">python坑</a>&nbsp;
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>615 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>867 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -229,29 +229,46 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="for循环问题"><a href="#for循环问题" class="headerlink" title="for循环问题"></a>for循环问题</h3><p>每次进入循环前，都会判断当前循环次数与现在的可迭代对象的长度，如果小于，则进入循环，否则，循环结束。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ss = [2,3,6,9,7,1]</span><br><span class="line">for i in ss:</span><br><span class="line">	print(max(ss),end=&#x27;,&#x27;)</span><br><span class="line">	ss.remove(max(ss))</span><br><span class="line"># 输出结果为9，7，6，</span><br></pre></td></tr></table></figure>
+            <p>补录：astype方法总是会重新生成一个新数组。</p>
+<h3 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h3><h4 id="NumPy数组算术"><a href="#NumPy数组算术" class="headerlink" title="NumPy数组算术"></a>NumPy数组算术</h4><p>ndarray数组支持进行批量操作而无需任何循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([[1,2,3],[4,5,6]])</span><br><span class="line"># 对应位置上的元素分别相乘</span><br><span class="line">print(arr * arr)</span><br><span class="line"># 对应位置上的元素分别相减</span><br><span class="line">print(arr - arr)</span><br><span class="line"># 对应位置上的元素分别除一，一为被除数</span><br><span class="line">print(1 / arr)</span><br><span class="line"># 对应位置上的元素分别开根号</span><br><span class="line">print(arr ** 0.5)</span><br></pre></td></tr></table></figure>
 
-<p>这里，他只进行了三次循环，因为他第三次循环结束时可迭代对象为[2,3,1],长度为3等于循环次数，循环结束。更直观的例子如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = [1,2,3,4]</span><br><span class="line">for i in s:</span><br><span class="line">	print(s.pop(),end=&#x27;,&#x27;)  # pop()删除位于列表结尾的元素，并返回</span><br><span class="line"># 输出结果为4,3,</span><br></pre></td></tr></table></figure>
+<p>同尺寸数组之间的比较，会返回一个布尔值的数组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">arr2 = np.array([[0,4,1],[7,2,12])</span><br><span class="line">print(arr1&gt;arr2)</span><br></pre></td></tr></table></figure>
 
-<h3 id="字典问题"><a href="#字典问题" class="headerlink" title="字典问题"></a>字典问题</h3><p>字典.items()返回的数据类型为特殊类型dict_items类型，可使用for循环遍历读取，读取出的形式为元组(‘键’,’值’)，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p = &#123;&#x27;name&#x27;:&#x27;opus&#x27;,&#x27;age&#x27;:19,&#x27;job&#x27;:&#x27;teacher&#x27;&#125;</span><br><span class="line">print(p.items()) </span><br><span class="line"># 输出结果为dict_items([(&#x27;name&#x27;, &#x27;mill&#x27;), (&#x27;age&#x27;, 19), (&#x27;job&#x27;, &#x27;teacher&#x27;)])</span><br><span class="line"></span><br><span class="line">for i in p.items():</span><br><span class="line">	print(i,end=&#x27;,&#x27;)  </span><br><span class="line"># 输出结果为(&#x27;name&#x27;, &#x27;mill&#x27;),(&#x27;age&#x27;, 19),(&#x27;job&#x27;, &#x27;teacher&#x27;), </span><br></pre></td></tr></table></figure>
+<p>注：大部分的操作是建立在相同尺寸的条件上的。</p>
+<h4 id="基础索引与切片"><a href="#基础索引与切片" class="headerlink" title="基础索引与切片"></a>基础索引与切片</h4><h5 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h5><p>一维数组的读取操作和列表操作类似。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line"># 切片读取整个数组</span><br><span class="line">print(arr) #省略[:]</span><br><span class="line">print(arr[:])</span><br><span class="line"># 索引读取一维数组的第六位元素</span><br><span class="line">print(arr[5])</span><br><span class="line"># 切片读取一维数组的五六七位元素</span><br><span class="line">print(arr[5:8])</span><br><span class="line">print(arr[5,6,7])</span><br><span class="line"># 切片读取一维数组的前四位元素</span><br><span class="line">print(arr[:4])</span><br><span class="line"># 修改五六七位元素为12</span><br><span class="line">arr[5:8]=12</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
 
-<p>同样，字典.keys()返回的是dict_keys类型，字典.values()返回的是dict_values类型，此处就不一一举例了。</p>
-<p>字典里的max和min方法比较的是键的大小，而不是值的大小，返回的同样是键</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = &#123;&#x27;a&#x27;:9,&#x27;b&#x27;:8,&#x27;c&#x27;:7&#125;</span><br><span class="line">print(s.max(),s.min())</span><br><span class="line"># 输出结果为:c a</span><br></pre></td></tr></table></figure>
+<p>数组的切片为原数组的视图，并不会进行复制，修改ndarray的切片会反映到原数组上。</p>
+<p>而对于python内建列表的话，通过索引复制给另一个变量的时候，两个变量公用一块内存块，而使用切片后就是两块地址。</p>
+<h5 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h5><p>在一个二维数组，每个索引值对应的元素不再是一个值，而是一个一维数组。(根据最高维进行索引)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line">print(arr2[1])</span><br><span class="line">print(arr2)</span><br></pre></td></tr></table></figure>
 
-<p>字典的get方法：字典.get(‘键’，默认值),如果找不到该键，则返回默认值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = &#123;&#x27;a&#x27;:9,&#x27;b&#x27;:8,&#x27;c&#x27;:7&#125;</span><br><span class="line">print(d.get(a,1),d.get(s,2))</span><br><span class="line"># 输出结果为9 2</span><br></pre></td></tr></table></figure>
+<p>当然也可以通过别的方法来获取单个元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line">print(arr[0][2])</span><br><span class="line">print(arr2[0,2])</span><br></pre></td></tr></table></figure>
 
-<h3 id="从用户输入中得到数字列表"><a href="#从用户输入中得到数字列表" class="headerlink" title="从用户输入中得到数字列表"></a>从用户输入中得到数字列表</h3><p>eval() 返回传入字符串的表达式的结果。就是说：将字符串当成有效的表达式 来求值 并 返回计算结果。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = 7</span><br><span class="line">eval( &#x27;3 * x&#x27; )</span><br><span class="line"># 输出结果为21</span><br><span class="line">eval(&#x27;pow(2,2)&#x27;)</span><br><span class="line"># 输出结果为4</span><br><span class="line">eval(&#x27;2 + 2&#x27;)</span><br><span class="line"># 输出结果为4</span><br><span class="line">ls = eval(input(&#x27;&#x27;)) # 如果输入3，5，3那么得到的就是一个数字列表</span><br></pre></td></tr></table></figure>
+<p>二维数组的切片操作：（对高维操作，对低维操作）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line"># 切片读取数组的前两列</span><br><span class="line">print([:,:2])</span><br><span class="line"># 切片读取数组的前两行</span><br><span class="line">print([:2])</span><br></pre></td></tr></table></figure>
 
-<p>eval函数就是实现list、dict、tuple与str之间的转化，同样str函数把list，dict，tuple转为为字符串</p>
-<p>同样，spilt()分割字符串也可得到数字列表</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls = map(int,input(&#x27;&#x27;).split(&#x27;,&#x27;))</span><br><span class="line">#如果输入3，5，3那么得到的就是一个数字列表</span><br></pre></td></tr></table></figure>
+<p>三维数组也是如此：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr3 = [[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]]</span><br><span class="line">print(arr3)</span><br><span class="line">print(arr3[:,:,:])</span><br><span class="line">print(arr3[0])</span><br><span class="line">print(arr[1,0]) #读取[7，8，9]</span><br><span class="line">print(arr[:1,:1,:2])</span><br></pre></td></tr></table></figure>
 
+<p>也可以进行copy，修改等的操作。</p>
+<h4 id="copy函数复制"><a href="#copy函数复制" class="headerlink" title="copy函数复制"></a>copy函数复制</h4><p>如果你想要得到切片的复制而不是一份视图的话，你必须显式地复制这个数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line">print(arr)</span><br><span class="line">arr1 = arr[5:8].copy()</span><br><span class="line">arr1[1] = 0</span><br><span class="line">print(arr1)</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
+
+<h4 id="布尔索引"><a href="#布尔索引" class="headerlink" title="布尔索引"></a>布尔索引</h4><p>在索引数组时可以传入布尔值数组，来进行数据的筛选。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">bool_data = data &gt;5</span><br><span class="line">print(data[bool_data])</span><br><span class="line">print(data[~bool_data])</span><br><span class="line">bool_data2 = data&lt;2 | data&gt;7</span><br><span class="line">print(data[bool_data2])</span><br><span class="line"># 可以对所筛选的值进行修改</span><br><span class="line">data[~bool_data2] = 0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过对数组进行逻辑运算来获得布尔数组，然后将其传入索引中，进而获得符合条件的元素。</li>
+<li>同样，也可以用户自己定义布尔数组，但布尔数组的形状必须和所进行筛选的数组形状相同，否则会报错。</li>
+<li>使用布尔数组索引数据时，总是生成数据的拷贝，即使返回数组与原数组相同。</li>
+<li><code>~</code>这符号可以在你想要对一个通用条件取反时使用</li>
+<li>可以使用数学操作符<code>&amp;</code>和<code>|</code>进行与和或的逻辑运算</li>
+</ul>
+<p>今日完毕。。。。</p>
 
         </div>
 
@@ -261,7 +278,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/python%E5%9D%91/">#python坑</a>&nbsp;
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
                     </li>
                 
             </ul>
@@ -270,29 +287,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/02/11/python%E5%9F%BA%E7%A1%80%E7%AC%AC5%E8%AF%BE-%E5%88%97%E8%A1%A8/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第5课-列表</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/07/python%E5%9F%BA%E7%A1%80%E7%AC%AC4%E8%AF%BE-%E5%AD%97%E7%AC%A6%E4%B8%B2/"
+                           href="/2022/02/27/numpy%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第4课-字符串</span>
+                                <span class="post-nav-title-item">numpy基础（1）</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -487,7 +489,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF%E9%97%AE%E9%A2%98"><span class="nav-text">for循环问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E9%97%AE%E9%A2%98"><span class="nav-text">字典问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E4%B8%AD%E5%BE%97%E5%88%B0%E6%95%B0%E5%AD%97%E5%88%97%E8%A1%A8"><span class="nav-text">从用户输入中得到数字列表</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy"><span class="nav-text">numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NumPy%E6%95%B0%E7%BB%84%E7%AE%97%E6%9C%AF"><span class="nav-text">NumPy数组算术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="nav-text">基础索引与切片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#copy%E5%87%BD%E6%95%B0%E5%A4%8D%E5%88%B6"><span class="nav-text">copy函数复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E7%B4%A2%E5%BC%95"><span class="nav-text">布尔索引</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
