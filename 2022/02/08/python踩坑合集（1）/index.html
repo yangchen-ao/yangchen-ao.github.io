@@ -229,26 +229,26 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="for循环问题"><a href="#for循环问题" class="headerlink" title="for循环问题"></a>for循环问题</h3><p>每次进入循环前，都会判断当前循环次数与现在的可迭代对象的长度，如果小于，则进入循环，否则，循环结束。</p>
+            <h3 id="for循环问题"><a href="#for循环问题" class="headerlink" title="for循环问题"></a>for循环问题</h3><p>​    每次进入循环前，都会判断当前循环次数与现在的可迭代对象的长度，如果小于，则进入循环，否则，循环结束。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ss = [2,3,6,9,7,1]</span><br><span class="line">for i in ss:</span><br><span class="line">	print(max(ss),end=&#x27;,&#x27;)</span><br><span class="line">	ss.remove(max(ss))</span><br><span class="line"># 输出结果为9，7，6，</span><br></pre></td></tr></table></figure>
 
-<p>这里，他只进行了三次循环，因为他第三次循环结束时可迭代对象为[2,3,1],长度为3等于循环次数，循环结束。更直观的例子如：</p>
+<p>​    这里，他只进行了三次循环，因为他第三次循环结束时可迭代对象为[2,3,1],长度为3等于循环次数，循环结束。更直观的例子如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = [1,2,3,4]</span><br><span class="line">for i in s:</span><br><span class="line">	print(s.pop(),end=&#x27;,&#x27;)  # pop()删除位于列表结尾的元素，并返回</span><br><span class="line"># 输出结果为4,3,</span><br></pre></td></tr></table></figure>
 
-<h3 id="字典问题"><a href="#字典问题" class="headerlink" title="字典问题"></a>字典问题</h3><p>字典.items()返回的数据类型为特殊类型dict_items类型，可使用for循环遍历读取，读取出的形式为元组(‘键’,’值’)，例如：</p>
+<h3 id="字典问题"><a href="#字典问题" class="headerlink" title="字典问题"></a>字典问题</h3><p>​    字典.items()返回的数据类型为特殊类型dict_items类型，可使用for循环遍历读取，读取出的形式为元组(‘键’,’值’)，例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p = &#123;&#x27;name&#x27;:&#x27;opus&#x27;,&#x27;age&#x27;:19,&#x27;job&#x27;:&#x27;teacher&#x27;&#125;</span><br><span class="line">print(p.items()) </span><br><span class="line"># 输出结果为dict_items([(&#x27;name&#x27;, &#x27;mill&#x27;), (&#x27;age&#x27;, 19), (&#x27;job&#x27;, &#x27;teacher&#x27;)])</span><br><span class="line"></span><br><span class="line">for i in p.items():</span><br><span class="line">	print(i,end=&#x27;,&#x27;)  </span><br><span class="line"># 输出结果为(&#x27;name&#x27;, &#x27;mill&#x27;),(&#x27;age&#x27;, 19),(&#x27;job&#x27;, &#x27;teacher&#x27;), </span><br></pre></td></tr></table></figure>
 
-<p>同样，字典.keys()返回的是dict_keys类型，字典.values()返回的是dict_values类型，此处就不一一举例了。</p>
+<p>​    同样，字典.keys()返回的是dict_keys类型，字典.values()返回的是dict_values类型，此处就不一一举例了。</p>
 <p>字典里的max和min方法比较的是键的大小，而不是值的大小，返回的同样是键</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = &#123;&#x27;a&#x27;:9,&#x27;b&#x27;:8,&#x27;c&#x27;:7&#125;</span><br><span class="line">print(s.max(),s.min())</span><br><span class="line"># 输出结果为:c a</span><br></pre></td></tr></table></figure>
 
 <p>字典的get方法：字典.get(‘键’，默认值),如果找不到该键，则返回默认值。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = &#123;&#x27;a&#x27;:9,&#x27;b&#x27;:8,&#x27;c&#x27;:7&#125;</span><br><span class="line">print(d.get(a,1),d.get(s,2))</span><br><span class="line"># 输出结果为9 2</span><br></pre></td></tr></table></figure>
 
-<h3 id="从用户输入中得到数字列表"><a href="#从用户输入中得到数字列表" class="headerlink" title="从用户输入中得到数字列表"></a>从用户输入中得到数字列表</h3><p>eval() 返回传入字符串的表达式的结果。就是说：将字符串当成有效的表达式 来求值 并 返回计算结果。</p>
+<h3 id="从用户输入中得到数字列表"><a href="#从用户输入中得到数字列表" class="headerlink" title="从用户输入中得到数字列表"></a>从用户输入中得到数字列表</h3><p>​    eval() 返回传入字符串的表达式的结果。就是说：将字符串当成有效的表达式 来求值 并 返回计算结果。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = 7</span><br><span class="line">eval( &#x27;3 * x&#x27; )</span><br><span class="line"># 输出结果为21</span><br><span class="line">eval(&#x27;pow(2,2)&#x27;)</span><br><span class="line"># 输出结果为4</span><br><span class="line">eval(&#x27;2 + 2&#x27;)</span><br><span class="line"># 输出结果为4</span><br><span class="line">ls = eval(input(&#x27;&#x27;)) # 如果输入3，5，3那么得到的就是一个数字列表</span><br></pre></td></tr></table></figure>
 
-<p>eval函数就是实现list、dict、tuple与str之间的转化，同样str函数把list，dict，tuple转为为字符串</p>
+<p>​    eval函数就是实现list、dict、tuple与str之间的转化，同样str函数把list，dict，tuple转为为字符串</p>
 <p>同样，spilt()分割字符串也可得到数字列表</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls = map(int,input(&#x27;&#x27;).split(&#x27;,&#x27;))</span><br><span class="line">#如果输入3，5，3那么得到的就是一个数字列表</span><br></pre></td></tr></table></figure>
 

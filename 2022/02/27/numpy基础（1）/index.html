@@ -208,7 +208,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>601 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>603 字</span>
         </span>
     
     
@@ -236,12 +236,12 @@
 <li>全局数组进行复杂计算无需循环</li>
 <li>内存量小。</li>
 </ul>
-<h4 id="ndarray的创建"><a href="#ndarray的创建" class="headerlink" title="ndarray的创建"></a>ndarray的创建</h4><h5 id="array函数的创建"><a href="#array函数的创建" class="headerlink" title="array函数的创建"></a>array函数的创建</h5><p>array函数可以把任意的序列型对象转换成ndarray数组。通过复制来创建ndarray数据。</p>
+<h4 id="ndarray的创建"><a href="#ndarray的创建" class="headerlink" title="ndarray的创建"></a>ndarray的创建</h4><h5 id="array函数的创建"><a href="#array函数的创建" class="headerlink" title="array函数的创建"></a>array函数的创建</h5><p>​    array函数可以把任意的序列型对象转换成ndarray数组。通过复制来创建ndarray数据。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建一维数组</span><br><span class="line">data0 = np.array([1,2,3,1])</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建二维数组，嵌套序列（序列元素的长度相同）</span><br><span class="line">data1 = np.array([[1,2,3,4],[5,6,7,8]])</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
 
-<h5 id="asarray函数创建"><a href="#asarray函数创建" class="headerlink" title="asarray函数创建"></a>asarray函数创建</h5><p>类似于array，同样是将输入数据转换成ndarray数组。但如何输入已经是ndarray数据则不再进行复制。</p>
+<h5 id="asarray函数创建"><a href="#asarray函数创建" class="headerlink" title="asarray函数创建"></a>asarray函数创建</h5><p>​    类似于array，同样是将输入数据转换成ndarray数组。但如何输入已经是ndarray数据则不再进行复制。</p>
 <h5 id="arange函数创建"><a href="#arange函数创建" class="headerlink" title="arange函数创建"></a>arange函数创建</h5><p>arange类似于range，但arange返回值类型为ndarray数组。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建一维数组[0，1，2，3，4，5]</span><br><span class="line">data = np.arange(6)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
 
@@ -267,7 +267,7 @@
 <p>也可以把只是数字组成的字符串组成的元素转换成数字：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numeric_strings = np.array([&#x27;1.25&#x27;,&#x27;-9.6&#x27;,&#x27;42&#x27;],dtype=np.string_)</span><br><span class="line">numeric_strings.astype(np.float64)</span><br></pre></td></tr></table></figure>
 
-<p>尽量避免数据类型为numpy.string_，因为numpy会修正他的大小或和删除输入且不发出警告。后面的pandas会更好的处理这种情况。</p>
+<p>​    尽量避免数据类型为numpy.string_，因为numpy会修正他的大小或和删除输入且不发出警告。后面的pandas会更好的处理这种情况。</p>
 <p>暂时到这。。。。</p>
 
         </div>

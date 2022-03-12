@@ -9,7 +9,7 @@
     
     <title>
         
-            Hexo-Github搭建个人博客（上） |
+            numpy基础（4） |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hexo-Github搭建个人博客（上）</span>
+            <span class="title-hover-animation">numpy基础（4）</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-01-30 15:02:09</span>
-        <span class="mobile">2022-01-30 15:02</span>
+        <span class="pc">2022-03-10 13:29:43</span>
+        <span class="mobile">2022-03-10 13:29</span>
     </span>
     
     
@@ -198,7 +198,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/hexo/">hexo</a>&nbsp;
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>667 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -229,50 +229,67 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a><strong>安装Node.js</strong></h3><p>先下载<a class="link" target="_blank" rel="noopener" href="https://nodejs.org/en/download/">稳定版<i class="fas fa-external-link-alt"></i></a>（LTS），安装选项选默认（想改路径可以），一路Next。</p>
-<p>安装好之后，按<strong>win+R</strong>输入<em><strong>cmd</strong></em>打开命令提示符，输入<em><strong>node -v</strong></em>和<em><strong>npm -v</strong></em>，如果出现版本号，则安装就完成了</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a><strong>安装Git</strong></h3><p>为了把本地文件上传到Github上面去，我们需要分布式版本控制工具———<a class="link" target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git<i class="fas fa-external-link-alt"></i></a>.</p>
-<p>安装选项还是默认，路径随意，安装完成之后，打开命令提示符，输入<em><strong>git -v</strong></em>，如果不报错，则证明安装成功。</p>
-<h3 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a><strong>注册Github账号</strong></h3><p>打开<a class="link" target="_blank" rel="noopener" href="https://github.com/">官网<i class="fas fa-external-link-alt"></i></a>，注册流程很简单，注册完成登录。</p>
-<p>注意：网站有时不好使，因为是在国内访问的原因，如果无法打开，则等待几个小时后在去访问，或者有能力的可以了解科学上网（私聊博主可获取秘密武器哦）</p>
-<p>新建一个项目，如图所示：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo1.png" alt="1"></p>
-<p>输入项目名，名称一定要和你的GitHub名字一样，后面要加.github.io，README的初始化最好也点上，如图所示：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo2.png" alt="2"></p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h3><p>在一个合适的地方新建一个文件夹，用来存放自己的博客文件，在该目录下右击，点<strong>Git Bash Here</strong>，打开git控制台窗口，<u>以后我们所有的操作将都在git控制台进行</u>。在控制台中输入 <em><strong>npm i hexo-cli -g</strong></em> 安装Hexo。</p>
-<p>安装完后输入<em><strong>hexo -v</strong></em>验证是否安装成功。</p>
-<p>然后就要初始化我们的网站，输入<em><strong>hexo init blog</strong></em>初始化文件，接着输入<em><strong>cd blog</strong></em> ，然后输入<em><strong>npm install</strong></em>安装必备的组件。</p>
-<p>这样本地的网站配置也弄好了，输入<em><strong>hexo g</strong></em>生成静态网页，然后输入<em><strong>hexo s</strong></em>打开本地服务器，然后浏览器访问<a class="link" target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/<i class="fas fa-external-link-alt"></i></a> ，就可以看到我们的熟悉的Hello World了，效果如下：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo3.png" alt="3"></p>
-<p>返回控制台按<strong>ctrl+c</strong>关闭本地服务器</p>
-<h3 id="连接Github与本地"><a href="#连接Github与本地" class="headerlink" title="连接Github与本地"></a><strong>连接Github与本地</strong></h3><p>首先在任意地方右击打开 <strong>Git Bash Here</strong>，然后输入下面的命令：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo4.png" alt="4"></p>
-<p>注意：用户名和邮箱请修改成你GitHub的消息，name和email后有空格</p>
-<p>输入如下命令，按三次回车，然后生成密钥SSH key</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo5.png" alt="5"></p>
-<p>然后到上面提示的地址里用记事本打开id_rsa.pub，复制里面的内容</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo6.png" alt="6"></p>
-<p>打开<a class="link" target="_blank" rel="noopener" href="https://github.com/">GitHub<i class="fas fa-external-link-alt"></i></a> ，头像下面点击<strong>Setting</strong>，</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo7.png" alt="7"></p>
-<p>再点击<strong>SSH and GPG keys</strong>，新建一个SSH，名字随便起。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo8.png" alt="8"></p>
-<p>然后将记事本复制的内容复制到框中，点击确认保存。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo9.png" alt="9"></p>
-<p>然后到git控制台中输入<em><strong>ssh -T  <a class="link" href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;<i class="fas fa-external-link-alt"></i></a></strong></em>，第一次提示输入yes，然后如果出现你的用户名，那就成功了，如下图示。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo10.png" alt="10"></p>
-<h3 id="配置并上传网站"><a href="#配置并上传网站" class="headerlink" title="配置并上传网站"></a><strong>配置并上传网站</strong></h3><p>打开博客目录下的**_config.yml**文件，这是博客的配置文件，在这里你可以修改博客的相关信息，现在，只修改最后一行配置：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo11.png" alt="11"></p>
-<p>将<strong>respository</strong>修改为你自己的GitHub项目地址(ssh)。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo12.png" alt="12"></p>
-<p>然后返回文件夹中右击打开git控制台，输入<em><strong>npm install hexo-deployer-git –save</strong></em>,安装git插件，</p>
-<p>然后输入<em><strong>hexo g</strong></em>和<em><strong>hexo d</strong></em>上传到GitHub上。这是你打开你的io主页就能看到你上传的博客网站了。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo13.png" alt="13"></p>
-<h3 id="绑定域名（没有可忽略，直接用io网址访问即可）"><a href="#绑定域名（没有可忽略，直接用io网址访问即可）" class="headerlink" title="绑定域名（没有可忽略，直接用io网址访问即可）"></a><strong>绑定域名（没有可忽略，直接用io网址访问即可）</strong></h3><p>想要更换域名，可以自己到卖域名的平台买个域名，XX云都能买。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo14.png" alt="14"></p>
-<p>然后买完之后，点击解析，添加两条解析记录，第二条，主机记录为www，记录类型为CNAME，记录值为你GitHub项目page里的那个地址，然后第一条，主机记录为@，记录类型为A，记录值为你通过命令提示符窗口ping第二条记录值得到的ip！！</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo15.png" alt="15"></p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo16.png" alt="16"></p>
-<p>​打开你本地博客目录中source文件夹，新建文本文件，然后在里面写上你的域名，保存，然后重命名删除后缀。最后运行<em><strong>hexo g</strong></em>和<em><strong>hexo d</strong></em>上传到github。</p>
+            <h3 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h3><h4 id="where函数"><a href="#where函数" class="headerlink" title="where函数"></a>where函数</h4><p>对数组中的每个元素做三元表达式<code>x if condition else y</code>。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xarr = np.array([1.1,1.2,1.3,1.4,1.5])</span><br><span class="line">xarr = np.array([2.1,2.2,2.3,2.4,2.5])</span><br><span class="line">cond = np.array([True,False,True,True,False])</span><br><span class="line">result = where(cond, xarr, yarr)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>注：np.where的第二个参数和第三个参数可以不是数组，可以是标量（例如数字）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 生成一个4*4的随机数组，大于零的替换为正一，小于零的替换成负一</span><br><span class="line">arr = np.random.randn(4,4)</span><br><span class="line">print(arr)</span><br><span class="line">print(np.where(arr&gt;0,1,-1))</span><br></pre></td></tr></table></figure>
+
+<p>也可以将标量与数组结合，如果是两个数组，必须同等大小。</p>
+<h4 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h4><h5 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h5><p>如果对整个数组进行统计值或关于轴向数据的处理，可以采用聚合函数（也叫缩减函数），比如sum,mean,std（标准差）</p>
+<p>既可以通过直接调用实例的方法，也可以使用顶层的numpy函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(5,4)</span><br><span class="line">print(arr)</span><br><span class="line"># 对整个数组求平均</span><br><span class="line">print(arr.mean())</span><br><span class="line">print(np.mean(arr))</span><br><span class="line"># 对整个数组求和</span><br><span class="line">print(arr.sum())</span><br></pre></td></tr></table></figure>
+
+<p>同样，这些函数可以接收一个可选参数axis，例如一个二维数组，axis=1表示对数组的每一行进行操作，axis=0则表示对数组的每一列进行操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(5,4)</span><br><span class="line">print(arr.mean(axis = 1))</span><br><span class="line">print(arr.sum(axis=0))</span><br></pre></td></tr></table></figure>
+
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><p>例如cumsum（累加）和cumprod（累乘）方法不会聚合，他们会返回一个中间结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 对整个数组进行累加</span><br><span class="line">arr = np.array([0,1,2,3,4,5,6,7])</span><br><span class="line">print(arr.cumsum())</span><br><span class="line"># 对数组中的每一列进行累加</span><br><span class="line">arr1 = np.array([[0,1,2],[3,4,5],[6,7,8]])</span><br><span class="line">print(arr.cumsum(axis = 0))</span><br><span class="line"># 对数组中的每一行进行累乘</span><br><span class="line">print(arr1.cumprod(axis=  1))</span><br></pre></td></tr></table></figure>
+
+<h5 id="基础数组统计方法"><a href="#基础数组统计方法" class="headerlink" title="基础数组统计方法"></a>基础数组统计方法</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sum</td>
+<td>沿着轴向计算所有元素的累和，0长度的数组，累和为0</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>数学平均，0长度的数组平均值为NaN</td>
+</tr>
+<tr>
+<td>std，var</td>
+<td>标准差和方差，可以选择自由度调整（默认分母为n）</td>
+</tr>
+<tr>
+<td>min，max</td>
+<td>最小值和最大值</td>
+</tr>
+<tr>
+<td>argmin，argmax</td>
+<td>最小值和最大值的位置</td>
+</tr>
+<tr>
+<td>cumsum</td>
+<td>从0开始元素累加和</td>
+</tr>
+<tr>
+<td>cumprod</td>
+<td>从1开始元素累乘积</td>
+</tr>
+</tbody></table>
+<h4 id="布尔值数组"><a href="#布尔值数组" class="headerlink" title="布尔值数组"></a>布尔值数组</h4><p>通过条件判断生成的布尔值数组，True为1，False为0，所以可以通过sum来计算数组中True的个数，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(100)</span><br><span class="line">print((arr &gt; 0).sum())</span><br></pre></td></tr></table></figure>
+
+<p>对于布尔值数组，有两个很有用的方法，any和all：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bools = np.array([False,False,True,False])</span><br><span class="line">bools.any()</span><br><span class="line">bools.all()</span><br></pre></td></tr></table></figure>
+
+<p>注：非布尔值数组同样也适用，所有的非0元素都会按True处理。</p>
+<p>今日完结。。。。</p>
 
         </div>
 
@@ -282,7 +299,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/hexo/">#hexo</a>&nbsp;
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
                     </li>
                 
             </ul>
@@ -291,21 +308,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/01/30/Hexo%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%EF%BC%881%EF%BC%89/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/03/02/numpy%E5%9F%BA%E7%A1%80%EF%BC%883%EF%BC%89/"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hexo博客遇到的坑（1）</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-title-item">numpy基础（3）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -493,7 +510,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CGithub%E8%B4%A6%E5%8F%B7"><span class="nav-text">注册Github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5Github%E4%B8%8E%E6%9C%AC%E5%9C%B0"><span class="nav-text">连接Github与本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%B8%8A%E4%BC%A0%E7%BD%91%E7%AB%99"><span class="nav-text">配置并上传网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E6%B2%A1%E6%9C%89%E5%8F%AF%E5%BF%BD%E7%95%A5%EF%BC%8C%E7%9B%B4%E6%8E%A5%E7%94%A8io%E7%BD%91%E5%9D%80%E8%AE%BF%E9%97%AE%E5%8D%B3%E5%8F%AF%EF%BC%89"><span class="nav-text">绑定域名（没有可忽略，直接用io网址访问即可）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%BA%93"><span class="nav-text">numpy库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#where%E5%87%BD%E6%95%B0"><span class="nav-text">where函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97"><span class="nav-text">计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%95%B0%E7%BB%84%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="nav-text">基础数组统计方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E5%80%BC%E6%95%B0%E7%BB%84"><span class="nav-text">布尔值数组</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

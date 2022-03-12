@@ -231,28 +231,28 @@
         <div class="article-content markdown-body">
             <h3 id="ndarray数据"><a href="#ndarray数据" class="headerlink" title="ndarray数据"></a>ndarray数据</h3><h4 id="进阶索引和切片"><a href="#进阶索引和切片" class="headerlink" title="进阶索引和切片"></a>进阶索引和切片</h4><h5 id="神奇索引"><a href="#神奇索引" class="headerlink" title="神奇索引"></a>神奇索引</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr = np.empty((8,4))</span><br><span class="line">for i in range(8):</span><br><span class="line">	arr[i] = i</span><br><span class="line">print(arr)</span><br><span class="line">print(arr[[4,3,0,6]) # 最高维度，此处是二维--行</span><br><span class="line">print(arr[[4,3,0,6],[2,3，1，4]])</span><br><span class="line">print(arr[[-3,-5,-7]]) # 负的索引，将从尾部进行选择</span><br></pre></td></tr></table></figure>
 
-<p>如上面的倒数第二个索引，两个列表元素依次为行、列，对应位置组成一个索引，如下面的第一个元素位置为（4，2），所以前后的长度必须相同或者其中一个为一。</p>
-<p>注：神奇索引与切片和布尔索引不同，它总是将数据复制到一个新的数组中，所以改变神奇索引 中的值并不会修改原数组</p>
-<h4 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h4><h5 id="数组转置和换轴"><a href="#数组转置和换轴" class="headerlink" title="数组转置和换轴"></a>数组转置和换轴</h5><p>转置是一种特殊的数据重组形式，它可以返回底层数据的视图而不需要复制任何内容，所以修改转置数组的值会改变。</p>
+<p>​    如上面的倒数第二个索引，两个列表元素依次为行、列，对应位置组成一个索引，如下面的第一个元素位置为（4，2），所以前后的长度必须相同或者其中一个为一。</p>
+<p>​    注：神奇索引与切片和布尔索引不同，它总是将数据复制到一个新的数组中，所以改变神奇索引 中的值并不会修改原数组</p>
+<h4 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h4><h5 id="数组转置和换轴"><a href="#数组转置和换轴" class="headerlink" title="数组转置和换轴"></a>数组转置和换轴</h5><p>​    转置是一种特殊的数据重组形式，它可以返回底层数据的视图而不需要复制任何内容，所以修改转置数组的值会改变。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(15).reshape((3,5))</span><br><span class="line">print(arr)</span><br><span class="line">arr1 = arr.T</span><br><span class="line">print(arr1)</span><br><span class="line">arr1[(0,2)] = 0</span><br><span class="line">print(arr)</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
 
-<p>对于更高维度的数组，transpose方法可以接受包含轴编号的元组，用于置换轴，如：</p>
+<p>​    对于更高维度的数组，transpose方法可以接受包含轴编号的元组，用于置换轴，如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(16).reshape((2,2,4))</span><br><span class="line">arr1 = arr.transpose((1,0,2)) # 交换第三维和第二维---行</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
 
 <p>也可以通过swapaxes的方法交换两个轴，如 ：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arnage(16).reshape((2,2,4))</span><br><span class="line">arr1 = arr.swapaxes(1,2)</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
 
 <p>swapaxes同样返回的是数据的视图，而没对数据进行复制。</p>
-<h5 id="矩阵的内积"><a href="#矩阵的内积" class="headerlink" title="矩阵的内积"></a>矩阵的内积</h5><p>一个行向量乘以一个列向量的内积，又叫作点积，结果为一个数，如同矩阵的乘法，我们使用np.dot可实现上述操作</p>
+<h5 id="矩阵的内积"><a href="#矩阵的内积" class="headerlink" title="矩阵的内积"></a>矩阵的内积</h5><p>​    一个行向量乘以一个列向量的内积，又叫作点积，结果为一个数，如同矩阵的乘法，我们使用np.dot可实现上述操作</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(6,3)</span><br><span class="line">print(arr)</span><br><span class="line">np.dot(drr,drr.T) #得到6行3列的矩阵</span><br></pre></td></tr></table></figure>
 
-<h4 id="通用函数–快速的族元素数组函数"><a href="#通用函数–快速的族元素数组函数" class="headerlink" title="通用函数–快速的族元素数组函数"></a>通用函数–快速的族元素数组函数</h4><p>通用函数–是指在ndarray数据中进行元素操作的函数，是对某些简单函数的封装，如sqrt或exp函数</p>
+<h4 id="通用函数–快速的族元素数组函数"><a href="#通用函数–快速的族元素数组函数" class="headerlink" title="通用函数–快速的族元素数组函数"></a>通用函数–快速的族元素数组函数</h4><p>​    通用函数–是指在ndarray数据中进行元素操作的函数，是对某些简单函数的封装，如sqrt或exp函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = arange(10)</span><br><span class="line">print(arr)</span><br><span class="line"># 对每个元素进行开平方</span><br><span class="line">print(np.sqrt(arr))</span><br><span class="line"># 将每个元素作为e的指数得到结果</span><br><span class="line">print(np.exp(arr))</span><br></pre></td></tr></table></figure>
 
 <p>还有一些二元通用函数，如add或maximum函数，返回一个数组</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.randn(8)</span><br><span class="line">y = np.random.randn(8)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line"># 两个数组对应位置取两组最大</span><br><span class="line">print(np.maximum(x,y))</span><br><span class="line"># 返回两个数组对应位置的数字相加</span><br><span class="line">print(np.add(x,y))</span><br></pre></td></tr></table></figure>
 
-<p>同样也是有返回多个数组，如modf，返回数组的整数部分和小数部分，两部分的的数组符号与原数组相同，整数部分一浮点型表示</p>
+<p>​    同样也是有返回多个数组，如modf，返回数组的整数部分和小数部分，两部分的的数组符号与原数组相同，整数部分一浮点型表示</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(7)*5</span><br><span class="line">print(arr)</span><br><span class="line">remainder, whole_part = np.modf(arr)</span><br><span class="line">print(remainder)</span><br><span class="line">print(whole_part)</span><br></pre></td></tr></table></figure>
 
 <p>注：整数型ndarray也可以对其进行modf，得到小数部分全部为0.</p>
@@ -332,7 +332,7 @@
 </tr>
 </tbody></table>
 <h5 id="meshgrid函数"><a href="#meshgrid函数" class="headerlink" title="meshgrid函数"></a>meshgrid函数</h5><p>meshgrid函数是用两个坐标轴上的点在平面上画网格。<br>用法：<br>　　[X,Y]=meshgrid(x,y)<br>　　[X,Y]=meshgrid(x)与[X,Y]=meshgrid(x,x)是等同的<br>　　[X,Y,Z]=meshgrid(x,y,z)生成三维数组，可用来计算三变量的函数和绘制三维立体图</p>
-<p>就拿[X,Y]=meshgrid(x,y)第一个用法举例，该函数将向量x和y定义的区域转换成矩阵X和Y,其中矩阵X的行向量是向量x的<strong>简单复制</strong>，而矩阵Y的列向量是向量y的<strong>简单复制</strong>，假设<strong>x</strong>是长度为<strong>m</strong>的向量，<strong>y</strong>是长度为<strong>n</strong>的向量，则最终生成的矩阵X和Y的维度都是 <strong>n*m</strong> 。</p>
+<p>​    就拿[X,Y]=meshgrid(x,y)第一个用法举例，该函数将向量x和y定义的区域转换成矩阵X和Y,其中矩阵X的行向量是向量x的<strong>简单复制</strong>，而矩阵Y的列向量是向量y的<strong>简单复制</strong>，假设<strong>x</strong>是长度为<strong>m</strong>的向量，<strong>y</strong>是长度为<strong>n</strong>的向量，则最终生成的矩阵X和Y的维度都是 <strong>n*m</strong> 。</p>
 
         </div>
 
@@ -350,6 +350,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/03/10/numpy%E5%9F%BA%E7%A1%80%EF%BC%884%EF%BC%89/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">numpy基础（4）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">

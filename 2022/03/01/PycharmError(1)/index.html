@@ -231,13 +231,13 @@
         <div class="article-content markdown-body">
             <h3 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h3><p>pycharm 错误：无法将绘图发送到 <code>http://127.0.0.1:63342</code></p>
 <p>使用pycharm连接远程Python解释器时，在plt.show()时绘制错误。</p>
-<h3 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h3><p><code>http://127.0.0.1:63342</code>中的63342是呈现图像的环境变量，远程解释器尝试把远程将图像数据发送到远程服务器 <code>http://127.0.0.1:63342</code>，但被拒绝。</p>
-<p>SciView运行机制是：本地notebook的Pyvharm会监听127.0.0.1：63342，所以Pycharm会接收图像数据后会在SciView中显示。</p>
+<h3 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h3><p>​    <code>http://127.0.0.1:63342</code>中的63342是呈现图像的环境变量，远程解释器尝试把远程将图像数据发送到远程服务器 <code>http://127.0.0.1:63342</code>，但被拒绝。</p>
+<p>​    SciView运行机制是：本地notebook的Pyvharm会监听127.0.0.1：63342，所以Pycharm会接收图像数据后会在SciView中显示。</p>
 <h4 id="具体原因"><a href="#具体原因" class="headerlink" title="具体原因"></a>具体原因</h4><p>可能是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(14, 14), dpi=300)  # 创建画布</span><br></pre></td></tr></table></figure>
 
 <p>这里的figsize的数值太大，或者dpi分辨率太高。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>进入pycharm（可能只有专业版有）中的 setting – &gt; tools——&gt; Python scientific, 然后取消选择 ☑ Show plot in tool windosw。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​    进入pycharm（可能只有专业版有）中的 setting – &gt; tools——&gt; Python scientific, 然后取消选择 ☑ Show plot in tool windosw。</p>
 <p>或者降低figsize和dpi的大小。</p>
 
         </div>

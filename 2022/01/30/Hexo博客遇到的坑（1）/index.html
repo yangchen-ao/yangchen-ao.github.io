@@ -229,19 +229,19 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="1-基于Hexo和Github搭建的博客，手机端访问不了，怎么办？"><a href="#1-基于Hexo和Github搭建的博客，手机端访问不了，怎么办？" class="headerlink" title="1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？"></a>1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？</h3><p>因为是在国内，所以无论是访问Github还是Github所提供的服务都是不稳定的。电脑端能访问的原因大概率是因为科学上网的缘故，手机端无法访问是因为其拒绝了域名解析所用的ip地址。</p>
+            <h3 id="1-基于Hexo和Github搭建的博客，手机端访问不了，怎么办？"><a href="#1-基于Hexo和Github搭建的博客，手机端访问不了，怎么办？" class="headerlink" title="1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？"></a>1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？</h3><p>​    因为是在国内，所以无论是访问Github还是Github所提供的服务都是不稳定的。电脑端能访问的原因大概率是因为科学上网的缘故，手机端无法访问是因为其拒绝了域名解析所用的ip地址。</p>
 <p>解决方法：</p>
-<p>重新ping一下你的GitHub项目的地址，打开命令提示符cmd，输入<em><strong>ping 仓库名</strong></em>，如下图：</p>
+<p>​    重新ping一下你的GitHub项目的地址，打开命令提示符cmd，输入<em><strong>ping 仓库名</strong></em>，如下图：</p>
 <p><img lazyload src="/images/loading.svg" data-src="hexo1.png" alt="1"></p>
-<p>可以知道当前ip是185.199.109.153</p>
-<p>然后到域名DNS解析中，添加A记录值为上述ping到的ip，到此可以解决了。</p>
+<p>​    可以知道当前ip是185.199.109.153</p>
+<p>​    然后到域名DNS解析中，添加A记录值为上述ping到的ip，到此可以解决了。</p>
 <h3 id="2-Typora（Markdown）可以载入本地图片，而网页无法载入？"><a href="#2-Typora（Markdown）可以载入本地图片，而网页无法载入？" class="headerlink" title="2.Typora（Markdown）可以载入本地图片，而网页无法载入？"></a>2.Typora（Markdown）可以载入本地图片，而网页无法载入？</h3><p>原因：本地图片是靠相对路径载入的，而当上传网页时，它们的相对路径会发生改变。</p>
 <p>解决方法：</p>
-<p>在blog目录下打开git控制台，安装图片插件，输入<em><strong>npm install hexo-asset-image –save</strong></em>。</p>
-<p>然后打开blog目录下的_config.yml文件，将<strong>post_asset_folder</strong>改为<strong>true</strong>。</p>
-<p>然后重新new一个md文件，或者在原md文件处新建一个同名的文件夹来存放照片，将相对路径直接改成照片名，因为当你上传网页时，他们会被放入同一个文件夹。</p>
+<p>​    在blog目录下打开git控制台，安装图片插件，输入<em><strong>npm install hexo-asset-image –save</strong></em>。</p>
+<p>​    然后打开blog目录下的_config.yml文件，将<strong>post_asset_folder</strong>改为<strong>true</strong>。</p>
+<p>​    然后重新new一个md文件，或者在原md文件处新建一个同名的文件夹来存放照片，将相对路径直接改成照片名，因为当你上传网页时，他们会被放入同一个文件夹。</p>
 <p><img lazyload src="/images/loading.svg" data-src="hexo2.png" alt="2"></p>
-<p>我也被上述问题困扰了一下午，网上的方法大部分不好使，当然也有提出别的备用方案，如用gitee代替github，采用图床的方法等等，但都不符合我的预期，所以做了这个博客希望能给各位提供帮助。</p>
+<p>​    我也被上述问题困扰了一下午，网上的方法大部分不好使，当然也有提出别的备用方案，如用gitee代替github，采用图床的方法等等，但都不符合我的预期，所以做了这个博客希望能给各位提供帮助。</p>
 
         </div>
 

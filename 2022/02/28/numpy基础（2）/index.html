@@ -240,9 +240,9 @@
 <h4 id="基础索引与切片"><a href="#基础索引与切片" class="headerlink" title="基础索引与切片"></a>基础索引与切片</h4><h5 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h5><p>一维数组的读取操作和列表操作类似。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line"># 切片读取整个数组</span><br><span class="line">print(arr) #省略[:]</span><br><span class="line">print(arr[:])</span><br><span class="line"># 索引读取一维数组的第六位元素</span><br><span class="line">print(arr[5])</span><br><span class="line"># 切片读取一维数组的五六七位元素</span><br><span class="line">print(arr[5:8])</span><br><span class="line">print(arr[5,6,7])</span><br><span class="line"># 切片读取一维数组的前四位元素</span><br><span class="line">print(arr[:4])</span><br><span class="line"># 修改五六七位元素为12</span><br><span class="line">arr[5:8]=12</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
 
-<p>数组的切片为原数组的视图，并不会进行复制，修改ndarray的切片会反映到原数组上。</p>
-<p>而对于python内建列表的话，通过索引复制给另一个变量的时候，两个变量公用一块内存块，而使用切片后就是两块地址。</p>
-<h5 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h5><p>在一个二维数组，每个索引值对应的元素不再是一个值，而是一个一维数组。(根据最高维进行索引)</p>
+<p>​    数组的切片为原数组的视图，并不会进行复制，修改ndarray的切片会反映到原数组上。</p>
+<p>​    而对于python内建列表的话，通过索引复制给另一个变量的时候，两个变量公用一块内存块，而使用切片后就是两块地址。</p>
+<h5 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h5><p>​    在一个二维数组，每个索引值对应的元素不再是一个值，而是一个一维数组。(根据最高维进行索引)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line">print(arr2[1])</span><br><span class="line">print(arr2)</span><br></pre></td></tr></table></figure>
 
 <p>当然也可以通过别的方法来获取单个元素。</p>
