@@ -9,7 +9,7 @@
     
     <title>
         
-            python基础第8课-集合 |
+            numpy基础（6） |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">python基础第8课-集合</span>
+            <span class="title-hover-animation">numpy基础（6）</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-20 13:04:20</span>
-        <span class="mobile">2022-02-20 13:04</span>
+        <span class="pc">2022-03-13 16:33:13</span>
+        <span class="mobile">2022-03-13 16:33</span>
     </span>
     
     
@@ -198,7 +198,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/python%E5%9F%BA%E7%A1%80/">python基础</a>&nbsp;
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>445 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>6 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -229,22 +229,7 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="集合（set）"><a href="#集合（set）" class="headerlink" title="集合（set）"></a>集合（set）</h3><p>Python中的集合跟数学上的集合是一致的，不允许有重复元素，而且可以进行交集、并集、差集等运算。</p>
-<h4 id="集合创建"><a href="#集合创建" class="headerlink" title="集合创建"></a>集合创建</h4><h5 id="使用-创建集合对象"><a href="#使用-创建集合对象" class="headerlink" title="使用{}创建集合对象"></a>使用{}创建集合对象</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;3,5,7&#125; #集合存储整数 </span><br><span class="line">b=&#123;&#x27;hello&#x27;,&#x27;python&#x27;&#125; #集合存储字符串 </span><br><span class="line">c=&#123;3,4,True,&#x27;abc&#x27;,56.4&#125; #集合存储不同类型的数据 </span><br><span class="line">print(a) </span><br><span class="line">print(b) </span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-
-<h5 id="使用-set-创建集合对象"><a href="#使用-set-创建集合对象" class="headerlink" title="使用 set()创建集合对象"></a>使用 set()创建集合对象</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;b&#x27;]</span><br><span class="line">b=set(a) #将列表转换为集合</span><br><span class="line">print(b)</span><br><span class="line">c=(1,2,3,4,5) </span><br><span class="line">d=set(c) #将元组转换为集合 </span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
-
-<h5 id="使用推导式创建集合对象"><a href="#使用推导式创建集合对象" class="headerlink" title="使用推导式创建集合对象"></a>使用推导式创建集合对象</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;num for num in range(1, 100) if num % 3 == 0 or num % 5 == 0&#125; #推导式也可以用于推导集合</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<h4 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h4><h5 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;3,5,7&#125; </span><br><span class="line">a.add(&#x27;hello&#x27;) #add 方法添加元素 </span><br><span class="line">print(a)</span><br><span class="line">a.update([11, 17])</span><br><span class="line">a.update(&#x27;world&#x27;) #update会把元素拆分再添加进去</span><br></pre></td></tr></table></figure>
-
-<h5 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h5><p>使用 remove()，discard()实现集合删除指定元素、pop()实现删除并返回指定元素，clear()清空整个集合</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;10,20,30,40,50&#125; </span><br><span class="line">a.remove(20) #删除集合中的元素，如果没有则报错</span><br><span class="line">print(a) </span><br><span class="line">a.discard(30)</span><br><span class="line">print(a) </span><br><span class="line">print(a.pop())</span><br><span class="line">a.clear() #将集合清空 </span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<h4 id="其他运算"><a href="#其他运算" class="headerlink" title="其他运算"></a>其他运算</h4><p>像数学中概念一样，Python 对集合也提供了并集、交集、差集等运算。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;1,3,&#x27;sxt&#x27;&#125; </span><br><span class="line">b = &#123;&#x27;he&#x27;,&#x27;it&#x27;,&#x27;sxt&#x27;&#125; </span><br><span class="line">print(&#x27;并集：&#x27;,a|b) 				#并集 </span><br><span class="line">print(&#x27;并集：&#x27;,a.union(b))			#并集 </span><br><span class="line">print(&#x27;交集：&#x27;,a&amp;b) 				#交集 </span><br><span class="line">print(&#x27;交集：&#x27;,a.intersection(b)) 	#交集 </span><br><span class="line">print(&#x27;差集：&#x27;,a-b) 				#差集 </span><br><span class="line">print(&#x27;差集：&#x27;,a.difference(b)) 	#差集</span><br></pre></td></tr></table></figure>
-
-
+            <h3 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h3><h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4>
         </div>
 
         
@@ -253,7 +238,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/python%E5%9F%BA%E7%A1%80/">#python基础</a>&nbsp;
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
                     </li>
                 
             </ul>
@@ -262,29 +247,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/02/24/python%E5%9F%BA%E7%A1%80%E7%AC%AC9%E8%AF%BE-%E5%87%BD%E6%95%B0/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第9课-函数</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/17/python%E5%9F%BA%E7%A1%80%E7%AC%AC7%E8%AF%BE-%E5%AD%97%E5%85%B8/"
+                           href="/2022/03/13/numpy%E5%9F%BA%E7%A1%80%EF%BC%885%EF%BC%89/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第7课-字典</span>
+                                <span class="post-nav-title-item">numpy基础（5）</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -479,7 +449,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%EF%BC%88set%EF%BC%89"><span class="nav-text">集合（set）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E5%88%9B%E5%BB%BA"><span class="nav-text">集合创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88%E5%AF%B9%E8%B1%A1"><span class="nav-text">使用{}创建集合对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-set-%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88%E5%AF%B9%E8%B1%A1"><span class="nav-text">使用 set()创建集合对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88%E5%AF%B9%E8%B1%A1"><span class="nav-text">使用推导式创建集合对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C"><span class="nav-text">集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="nav-text">添加元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-text">删除元素</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97"><span class="nav-text">其他运算</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%BA%93"><span class="nav-text">numpy库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="nav-text">线性代数</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

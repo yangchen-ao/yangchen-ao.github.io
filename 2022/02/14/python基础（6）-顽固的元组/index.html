@@ -9,7 +9,7 @@
     
     <title>
         
-            python基础第9课-函数 |
+            python基础第6课-顽固的元组 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">python基础第9课-函数</span>
+            <span class="title-hover-animation">python基础第6课-顽固的元组</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-24 07:50:17</span>
-        <span class="mobile">2022-02-24 07:50</span>
+        <span class="pc">2022-02-14 21:24:53</span>
+        <span class="mobile">2022-02-14 21:24</span>
     </span>
     
     
@@ -208,7 +208,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1k 字</span>
         </span>
     
     
@@ -229,48 +229,34 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="函数基础"><a href="#函数基础" class="headerlink" title="函数基础"></a>函数基础</h3><p>函数可重复使用，用来实现相关联功能的代码段。函数能提高程序的模块性、代码的重复利用率。Python函数分两类，即内建函数，自定义函数。例如，print就是一个输出计算结果的函数，除了系统内置的函数之外，程序员还可以根据需要编写自己的函数。</p>
-<h4 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h4><p>函数定义非常简单，使用def关键字即可创建一个函数。函数在使用前必须定义，其语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名 ([参数 1,参数 2…]):</span><br><span class="line">    代码</span><br><span class="line">    [return 表达式]</span><br></pre></td></tr></table></figure>
+            <h3 id="顽固的元组"><a href="#顽固的元组" class="headerlink" title="顽固的元组"></a>顽固的元组</h3><p>元组和列表一样，也是一种序列。但元组的元素不能修改。</p>
+<h4 id="元组的创建"><a href="#元组的创建" class="headerlink" title="元组的创建"></a>元组的创建</h4><h5 id="最基本的创建"><a href="#最基本的创建" class="headerlink" title="最基本的创建"></a>最基本的创建</h5><p>通过()创建元组，小括号可以省略。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=1,2,3,4,5,6,7 #创建一个元组 省略了括号 </span><br><span class="line">b=(1,2,3,4,5,6,7) #创建一个元组 </span><br><span class="line">c=(42,) #创建一个只有一个元素值的元组 </span><br><span class="line">d=() #创建一个空的元组 </span><br><span class="line">print(a) </span><br><span class="line">print(b) </span><br><span class="line">print(c)</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>函数名的命名规范和变量的定义规则相同。</li>
-<li>函数的参数放在一对圆括号内，参数可以是一个，多个或零个，参数之间必须通过逗号间隔，这种参数称为形式参数。</li>
-<li>括号后面以冒号结尾，冒号的下面就是函数的主体。</li>
-<li>返回值不是必须的</li>
-</ul>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def print_info():</span><br><span class="line">	print(&#x27;我叫小薛,今年 18 岁，是一名大学生&#x27;)</span><br></pre></td></tr></table></figure>
+<h5 id="通过-tuple-创建元组"><a href="#通过-tuple-创建元组" class="headerlink" title="通过 tuple()创建元组"></a>通过 tuple()创建元组</h5><p>tuple 函数的功能与 list 函数基本上是一样的。以一个序列作为参数并把它转换为元祖。如果元素的参数就是元祖，那么该参数就会被原样返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#使用 tuple()函数创建元组 </span><br><span class="line">a=tuple(&quot;abc&quot;) </span><br><span class="line">b=tuple(range(3)) </span><br><span class="line">c=tuple((1,2,3,4,5)) </span><br><span class="line">print(a) </span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
 
-<p>好了，我们已经定义了一个函数，那么接下来我们来完成函数的调用。</p>
-<h4 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h4><p>函数的调用采用函数名加一对圆括号的方式，圆括号中的参数是传递给函数的具体值。函数调用的语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数名(实参 1,实参 2…)</span><br></pre></td></tr></table></figure>
+<h5 id="元组的基本操作"><a href="#元组的基本操作" class="headerlink" title="元组的基本操作"></a>元组的基本操作</h5><p>元组的元素不能修改，但可以转换成列表进行修改元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">a[3]=33 #修改元组中的元素，报错</span><br><span class="line">a = list(a)</span><br><span class="line">a[3]=33 #修改成功</span><br><span class="line">print(a) #输出为[20,10,33,9,8]</span><br></pre></td></tr></table></figure>
 
-<p>注意：即使函数不需要参数，调用函数时候，也要在函数名后使用一对空的圆括号</p>
-<p>例如：</p>
-<pre><code>def print_info():
-    print(&#39;我叫小薛,今年 18 岁，是一名大学生&#39;)
+<h5 id="zip创建"><a href="#zip创建" class="headerlink" title="zip创建"></a>zip创建</h5><p>zip(列表 1，列表 2，…)将多个列表对应位置的元素组合成为元组，并返回这个 zip 对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [10,20,30] </span><br><span class="line">b = [40,50,60] </span><br><span class="line">c = [70,80,90] </span><br><span class="line">d = zip(a,b,c) </span><br><span class="line">print(tuple(d))</span><br></pre></td></tr></table></figure>
 
-print_info()
-</code></pre>
-<p>上述程序虽然达到了效果，但是并不够灵活，如果想要在打印另一个人（李四）的个人信息，就需要去上面去修改源码，这样的话会非常麻烦的，因此在定义的时候可以让函数接收数据，这样的话就使程序变得比较灵活，就能达到想要的效果。</p>
-<h4 id="函数的形参与实参"><a href="#函数的形参与实参" class="headerlink" title="函数的形参与实参"></a>函数的形参与实参</h4><p>在def语句中函数名后面圆括号中的参数称为形参，而调用函数时指定的参数称为实参。</p>
-<p>下面实现，定义参数完成自我介绍：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#定义函数 </span><br><span class="line">def print_info(name,age): </span><br><span class="line">    print(&#x27;我叫&#123;0&#125;,今年&#123;1&#125;岁，是一名大学生&#x27;.format(name,age))</span><br><span class="line"></span><br><span class="line">#调用函数 </span><br><span class="line">print_info(&#x27;李四&#x27;,19)</span><br></pre></td></tr></table></figure>
+<h5 id="生成器推导式创建元组"><a href="#生成器推导式创建元组" class="headerlink" title="生成器推导式创建元组"></a>生成器推导式创建元组</h5><p>从形式上看，生成器推导式与列表推导式类似，只是生成器推导式使用小括号。列表推导式直接生成列表对象，生成器推导式生成的不是列表也不是元组，而是一个生成器对象。通过生成器对象，转化成列表或者元组。</p>
+<p>也可以使用生成器对象的<code>__next__()</code>方法进行遍历，或者直接作为迭代器对象来使用。不管什么方式使用，元素访问结束后，如果需要重新访问其中的元素，必须重新创建该生成器对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 请注意下面的代码创建的不是一个元组而是一个生成器对象</span><br><span class="line"># 通过生成器可以获取到数据但它不占用额外的空间存储数据</span><br><span class="line"># 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)</span><br><span class="line">import sys</span><br><span class="line">f = (x ** 2 for x in range(1, 1000))</span><br><span class="line">print(sys.getsizeof(f))  # 相比生成式生成器不占用存储数据的空间</span><br><span class="line">print(f) #生成器对象 </span><br><span class="line">for val in f:</span><br><span class="line">    print(val) # 访问完成需要再次创建</span><br><span class="line">print(list(f)) #空列表</span><br><span class="line"></span><br><span class="line">s = (x*2 for x in range(5)) </span><br><span class="line">print(tuple(s)) #tuple 函数转换为元组</span><br><span class="line"></span><br><span class="line">s = (x*2 for x in range(5))</span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__()) </span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__()) </span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__())</span><br></pre></td></tr></table></figure>
 
-<p>在上面的程序中，name 和 age 称为“形式参数”，简称“形参”。在调用函数printInfo(‘李四’,19)时，传递的’李四’和 19 称为“实际参数”，简称“实参”。</p>
-<h4 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h4><p>函数的返回使用 return 语句，return 的后面可以是变量或者表达式。</p>
-<p>例如，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#定义函数计算两数之和 </span><br><span class="line">def add(a,b): </span><br><span class="line">    return a+b </span><br><span class="line">#调用函数 </span><br><span class="line">sum=add(20,30) </span><br><span class="line">print(&#x27;两数的和:&#x27;,sum)</span><br></pre></td></tr></table></figure>
+<p>除了上面提到的生成器语法，Python中还有另外一种定义生成器的方式，就是通过<code>yield</code>关键字将一个普通函数改造成生成器函数。下面的代码演示了如何实现一个生成<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波拉切数列<i class="fas fa-external-link-alt"></i></a>的生成器。所谓斐波拉切数列可以通过下面<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92">递归<i class="fas fa-external-link-alt"></i></a>的方法来进行定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for _ in range(n):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        yield a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for val in fib(20):</span><br><span class="line">        print(val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<p>通过函数参数传入斐波那切数列长度，使用 return 语句返回计算结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#通过函数参数传入斐波那切数列长度，使用 return 语句返回计算结果</span><br><span class="line">#定义函数</span><br><span class="line">def fibs(n): #n 代码斐波那切数列的长度</span><br><span class="line">    #定义斐波那切数列的初识列表 </span><br><span class="line">    result=[0,1]</span><br><span class="line">	#通过循环计算，将结果添加到列表中 </span><br><span class="line">    for x in range(n-2): </span><br><span class="line">        result.append(result[-1]+result[-2]) </span><br><span class="line">    #将计算结果返回 </span><br><span class="line">    return result </span><br><span class="line">#调用函数 </span><br><span class="line">re=fibs(10) </span><br><span class="line">print(&#x27;斐波那切数列:&#x27;,re)</span><br></pre></td></tr></table></figure>
+<h4 id="元组的访问"><a href="#元组的访问" class="headerlink" title="元组的访问"></a>元组的访问</h4><p>元组的元素访问和列表一样，只不过返回的仍然是元组对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">print(a[1]) </span><br><span class="line">print(a[1:3]) </span><br><span class="line">print(a[:4])</span><br><span class="line">for i in a:</span><br><span class="line">	print(i) #元组遍历</span><br></pre></td></tr></table></figure>
 
-<h4 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h4><p>注释尽管在程序中不是必需的，但却是必要的。如果没有注释，那么程序就很难被别人读懂，甚至过段时间，自己都看不明白自己编写的程序。</p>
-<p>Python 语言支持单行注释和多行注释，其中单行注释使用“#”表示，多行注释使用三个单引号或三个双引号将注释内容括起来。</p>
-<p>对于函数来说，还可以使用另外一种注释：文档注释，也有人成为“函数的注释”。文档注释，需要在函数头(包含 def 关键字的那一行)的下一行用三个单引号或者三个双引号来实现，中间可以加入多行文字进行说明。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def add(a,b): </span><br><span class="line">	&quot;&quot;&quot;定义函数计算两数之和 &quot;&quot;&quot;</span><br><span class="line">    return a+b </span><br><span class="line">#调用函数 </span><br><span class="line">sum=add(20,30) </span><br><span class="line">print(&#x27;两数的和:&#x27;,sum)</span><br></pre></td></tr></table></figure>
+<p>列表关于排序的方法 list.sort()是修改原列表对象，元组没有该方法。如果要对元组排序，只能使用内置函数 sorted(tupleObj)，并生成新的列表对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">print(sorted(a))</span><br></pre></td></tr></table></figure>
 
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>元组在创建时间和占用的空间上面都优于列表。</p>
+<p>如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</p>
 
         </div>
 
@@ -292,13 +278,13 @@ print_info()
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/02/25/anaconda%E9%97%AE%E9%A2%98/"
+                           href="/2022/02/17/python%E5%9F%BA%E7%A1%80%EF%BC%887%EF%BC%89-%E5%AD%97%E5%85%B8/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">anaconda问题</span>
+                                <span class="post-nav-title-item">python基础第7课-字典</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -308,10 +294,10 @@ print_info()
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/20/python%E5%9F%BA%E7%A1%80%E7%AC%AC8%E8%AF%BE-%E9%9B%86%E5%90%88/"
+                           href="/2022/02/11/python%E5%9F%BA%E7%A1%80%EF%BC%885%EF%BC%89-%E5%88%97%E8%A1%A8/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第8课-集合</span>
+                                <span class="post-nav-title-item">python基础第5课-列表</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -506,7 +492,7 @@ print_info()
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80"><span class="nav-text">函数基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-text">函数的调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%8F%82%E4%B8%8E%E5%AE%9E%E5%8F%82"><span class="nav-text">函数的形参与实参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-text">函数的返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A"><span class="nav-text">文档注释</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BD%E5%9B%BA%E7%9A%84%E5%85%83%E7%BB%84"><span class="nav-text">顽固的元组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">元组的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">最基本的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-tuple-%E5%88%9B%E5%BB%BA%E5%85%83%E7%BB%84"><span class="nav-text">通过 tuple()创建元组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">元组的基本操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#zip%E5%88%9B%E5%BB%BA"><span class="nav-text">zip创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%85%83%E7%BB%84"><span class="nav-text">生成器推导式创建元组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-text">元组的访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

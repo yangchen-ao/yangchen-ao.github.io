@@ -9,8 +9,6 @@
     
     <title>
         
-            anaconda问题 |
-        
         小薛的储物间
     </title>
     
@@ -65,7 +63,7 @@
                 <ul class="menu-list">
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/"
                             >
                                 首页
@@ -126,7 +124,7 @@
         <ul class="drawer-menu-list">
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/">首页</a>
                 </li>
             
@@ -165,201 +163,64 @@
             <div class="main-content">
 
                 
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">anaconda问题</span>
-        </div>
-
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
         
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/tou.jpg">
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/01/30/Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%8A%EF%BC%89/">
+                        Hexo-Github搭建个人博客（上）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        安装Node.js先下载稳定版（LTS），安装选项选默认（想改路径可以），一路Next。
+安装好之后，按win+R输入cmd打开命令提示符，输入node -v和npm -v，如果出现版本号，则安装就完成了
+安装Git为了把本地文件上传到Github上...
+                    
                 </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">薛丰琉</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-25 12:17:11</span>
-        <span class="mobile">2022-02-25 12:17</span>
-    </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E5%9D%91/">坑</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
 
-    
-    
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>305 字</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
-        </span>
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jan 30 2022 15:02:09 GMT+0800">2022-01-30</span></span>
         
-
-        <div class="article-content markdown-body">
-            <h3 id="annconda的Jupyter如何修改默认文件夹的位置"><a href="#annconda的Jupyter如何修改默认文件夹的位置" class="headerlink" title="annconda的Jupyter如何修改默认文件夹的位置"></a>annconda的Jupyter如何修改默认文件夹的位置</h3><p>如图所示，打开<code>D:\anaconda\pkgs\_ipyw_jlab_nb_ext_conf-0.1.0-py39haa95532_0\etc\jupyter</code>的jupyter_notebook_config.json文件</p>
-<p><img lazyload src="/images/loading.svg" data-src="01.png" alt="01"></p>
-<p>输入如下代码，<code>E;\\download</code>为默认文件夹路径</p>
-<p><img lazyload src="/images/loading.svg" data-src="02.png" alt="02"></p>
-<p>然后在下面的文件夹（AppData为隐藏目录）里右击Jupyter快捷方式</p>
-<p>或者直接在开始菜单里搜索Jupyter，右击打开文件位置，打开属性</p>
-<p><img lazyload src="/images/loading.svg" data-src="03.png" alt="03"></p>
-<p>删除目标里两个%括起来的东西（包括%）和起始位置里的内容</p>
-<p><img lazyload src="/images/loading.svg" data-src="04.png" alt="04"></p>
-<h3 id="anaconda的Jupyter无法自动弹出浏览器"><a href="#anaconda的Jupyter无法自动弹出浏览器" class="headerlink" title="anaconda的Jupyter无法自动弹出浏览器"></a>anaconda的Jupyter无法自动弹出浏览器</h3><p>通过win+R打开cmd，输入<code>jupyter notebook --generate-config</code>，如果在安装时未将Anconda加入到系统环境变量中，执行该命令会报错。然后输入y，得到了配置文件及其所在的文件夹。</p>
-<p><img lazyload src="/images/loading.svg" data-src="05.png" alt="05"></p>
-<p>复制文件位置打开，</p>
-<p><img lazyload src="/images/loading.svg" data-src="06.png" alt="06"></p>
-<p>找到<code>c.NotebookApp.browser = &#39;&#39;</code>这行，</p>
-<p><img lazyload src="/images/loading.svg" data-src="07.png" alt="07"></p>
-<p>修改为下面的代码：下面以chorme浏览器为例(其他浏览器同，但不要出现中文文件名)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import webbrowser</span><br><span class="line">webbrowser.register(&quot;chrome&quot;,None,webbrowser.GenericBrowser(r&quot;&quot;C:\Program Files\Google\Chrome\Application\chrome.exe&quot;&quot;))</span><br><span class="line">c.NotebookApp.browser = &#x27;chrome&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>&quot;C:\Program Files\Google\Chrome\Application\chrome.exe&quot;</code>为你浏览器文件的地址，可以通过下面方式找到文件位置：</p>
-<p><img lazyload src="/images/loading.svg" data-src="08.png" alt="08"></p>
-<p><img lazyload src="/images/loading.svg" data-src="09.png" alt="09"></p>
-
-        </div>
-
         
-
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/hexo/">hexo</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
         
-            <ul class="post-tags-box">
-                
-                    <li class="tag-item">
-                        <a href="/tags/%E5%9D%91/">#坑</a>&nbsp;
-                    </li>
-                
-            </ul>
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/02/27/numpy%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy基础（1）</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/02/24/python%E5%9F%BA%E7%A1%80%EF%BC%889%EF%BC%89-%E5%87%BD%E6%95%B0/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第9课-函数</span>
-                                <span class="post-nav-item">下一篇</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;评论</i>
     </div>
+
+    <a href="/2022/01/30/Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%8A%EF%BC%89/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/page/2/"
+        >上一页</a>
     
 
-        
-            
-    <div id="gitalk-container"></div>
-    <script data-pjax
-            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-    <script data-pjax>
-
-        function loadGitalk() {
-            let __gitalk__pathname = decodeURI(location.pathname);
-            const __gitalk__pathnameLength = __gitalk__pathname.length;
-            const __gitalk__pathnameMaxLength = 50;
-            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
-                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
-            }
-
-            try {
-                Gitalk && new Gitalk({
-                    clientID: 'cddfa53ccaf70f707bcc',
-                    clientSecret: '79a7c06b16924ca3ddb59a8c9326e5abb776f371',
-                    repo: 'blog-talk',
-                    owner: 'yangchen-ao',
-                    admin: ['yangchen-ao'],
-                    id: __gitalk__pathname,
-                    language: 'zh-CN'
-                }).render('gitalk-container');
-
-            } catch (e) {
-                window.Gitalk = null;
-            }
-        }
-
-        if ('true') {
-            const loadGitalkTimeout = setTimeout(() => {
-                loadGitalk();
-                clearTimeout(loadGitalkTimeout);
-            }, 1000);
-        } else {
-            window.addEventListener('DOMContentLoaded', loadGitalk);
-        }
-    </script>
-
-
-
-        
     
 </div>
 
-            </div>
-        
     </div>
 </div>
 
@@ -406,27 +267,6 @@
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -482,14 +322,6 @@
     </div>
 
     
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#annconda%E7%9A%84Jupyter%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-text">annconda的Jupyter如何修改默认文件夹的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda%E7%9A%84Jupyter%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%87%BA%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-text">anaconda的Jupyter无法自动弹出浏览器</span></a></li></ol>
-    </div>
-</div>
-        </aside>
-    
 
     <div class="image-viewer-container">
     <img src="">
@@ -531,6 +363,7 @@
 
 
 
+
 <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
 
 
@@ -546,8 +379,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 

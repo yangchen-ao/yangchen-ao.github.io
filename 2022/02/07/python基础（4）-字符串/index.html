@@ -9,7 +9,7 @@
     
     <title>
         
-            python基础第6课-顽固的元组 |
+            python基础第4课-字符串 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">python基础第6课-顽固的元组</span>
+            <span class="title-hover-animation">python基础第4课-字符串</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-14 21:24:53</span>
-        <span class="mobile">2022-02-14 21:24</span>
+        <span class="pc">2022-02-07 19:51:33</span>
+        <span class="mobile">2022-02-07 19:51</span>
     </span>
     
     
@@ -208,7 +208,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
         </span>
     
     
@@ -229,34 +229,189 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="顽固的元组"><a href="#顽固的元组" class="headerlink" title="顽固的元组"></a>顽固的元组</h3><p>元组和列表一样，也是一种序列。但元组的元素不能修改。</p>
-<h4 id="元组的创建"><a href="#元组的创建" class="headerlink" title="元组的创建"></a>元组的创建</h4><h5 id="最基本的创建"><a href="#最基本的创建" class="headerlink" title="最基本的创建"></a>最基本的创建</h5><p>通过()创建元组，小括号可以省略。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=1,2,3,4,5,6,7 #创建一个元组 省略了括号 </span><br><span class="line">b=(1,2,3,4,5,6,7) #创建一个元组 </span><br><span class="line">c=(42,) #创建一个只有一个元素值的元组 </span><br><span class="line">d=() #创建一个空的元组 </span><br><span class="line">print(a) </span><br><span class="line">print(b) </span><br><span class="line">print(c)</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
+            <p>字符串是 Python 中最常用的数据类型。我们可以使用引号(‘或”)来创建字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#x27;hello, world!&#x27;</span><br><span class="line">s2 = &quot;hello, world!&quot;</span><br><span class="line"># 以三个双引号或单引号开头的字符串可以折行</span><br><span class="line">s3 = &quot;&quot;&quot;</span><br><span class="line">hello, </span><br><span class="line">world!</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">print(s1, s2, s3, end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="通过-tuple-创建元组"><a href="#通过-tuple-创建元组" class="headerlink" title="通过 tuple()创建元组"></a>通过 tuple()创建元组</h5><p>tuple 函数的功能与 list 函数基本上是一样的。以一个序列作为参数并把它转换为元祖。如果元素的参数就是元祖，那么该参数就会被原样返回</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#使用 tuple()函数创建元组 </span><br><span class="line">a=tuple(&quot;abc&quot;) </span><br><span class="line">b=tuple(range(3)) </span><br><span class="line">c=tuple((1,2,3,4,5)) </span><br><span class="line">print(a) </span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<h4 id="三引号"><a href="#三引号" class="headerlink" title="三引号"></a>三引号</h4><p>Python 中三引号可以将复杂的字符串进行赋值。</p>
+<p>如上一个例子所见，Python 三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符。</p>
+<p>三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（所见即所得）格式的。</p>
+<h4 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h4><p>可以在字符串中使用 <code>\</code>（反斜杠）来表示转义，如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">转义字符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>\</code> (在行尾时）</td>
+<td align="center">续行符</td>
+</tr>
+<tr>
+<td align="center"><code>\\</code></td>
+<td align="center">反斜杠符号</td>
+</tr>
+<tr>
+<td align="center"><code>\&#39;</code></td>
+<td align="center">单引号</td>
+</tr>
+<tr>
+<td align="center"><code>\&quot;</code></td>
+<td align="center">双引号</td>
+</tr>
+<tr>
+<td align="center"><code>\a</code></td>
+<td align="center">响铃</td>
+</tr>
+<tr>
+<td align="center"><code>\b</code></td>
+<td align="center">退格</td>
+</tr>
+<tr>
+<td align="center"><code>\e</code></td>
+<td align="center">转义</td>
+</tr>
+<tr>
+<td align="center"><code>\000</code></td>
+<td align="center">空</td>
+</tr>
+<tr>
+<td align="center"><code>\n</code></td>
+<td align="center">换行</td>
+</tr>
+<tr>
+<td align="center"><code>\v</code></td>
+<td align="center">纵向制表符</td>
+</tr>
+<tr>
+<td align="center"><code>\t</code></td>
+<td align="center">横向制表符</td>
+</tr>
+<tr>
+<td align="center"><code>\r</code></td>
+<td align="center">回车，将 \r 后面的内容移到字符串开头，并逐一替换开头部分的字符，直至将 \r 后面的内容完全替换完成。</td>
+</tr>
+<tr>
+<td align="center"><code>\f</code></td>
+<td align="center">换页</td>
+</tr>
+<tr>
+<td align="center"><code>\yyy</code></td>
+<td align="center">八进制数，y代表0~7的字符，例如\012</td>
+</tr>
+<tr>
+<td align="center"><code>\xyy</code></td>
+<td align="center">十六进制数，以\x开头，yy代表0~F字符，例如：\x0a代表换行</td>
+</tr>
+<tr>
+<td align="center"><code>\other</code></td>
+<td align="center">其它的字符以普通格式输出</td>
+</tr>
+</tbody></table>
+<p>可以运行下面的代码看看会输出什么。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#x27;\&#x27;hello, world!\&#x27;&#x27;</span><br><span class="line">s2 = &#x27;\n\\hello, world!\\\n&#x27;</span><br><span class="line">print(s1, s2, end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="元组的基本操作"><a href="#元组的基本操作" class="headerlink" title="元组的基本操作"></a>元组的基本操作</h5><p>元组的元素不能修改，但可以转换成列表进行修改元素</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">a[3]=33 #修改元组中的元素，报错</span><br><span class="line">a = list(a)</span><br><span class="line">a[3]=33 #修改成功</span><br><span class="line">print(a) #输出为[20,10,33,9,8]</span><br></pre></td></tr></table></figure>
+<p>如果不希望字符串中的<code>\</code>表示转义，我们可以通过在字符串的最前面加上字母<code>r</code>来加以说明，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = r&#x27;\&#x27;hello, world!\&#x27;&#x27;</span><br><span class="line">s2 = r&#x27;\n\\hello, world!\\\n&#x27;</span><br><span class="line">print(s1, s2, end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="zip创建"><a href="#zip创建" class="headerlink" title="zip创建"></a>zip创建</h5><p>zip(列表 1，列表 2，…)将多个列表对应位置的元素组合成为元组，并返回这个 zip 对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [10,20,30] </span><br><span class="line">b = [40,50,60] </span><br><span class="line">c = [70,80,90] </span><br><span class="line">d = zip(a,b,c) </span><br><span class="line">print(tuple(d))</span><br></pre></td></tr></table></figure>
 
-<h5 id="生成器推导式创建元组"><a href="#生成器推导式创建元组" class="headerlink" title="生成器推导式创建元组"></a>生成器推导式创建元组</h5><p>从形式上看，生成器推导式与列表推导式类似，只是生成器推导式使用小括号。列表推导式直接生成列表对象，生成器推导式生成的不是列表也不是元组，而是一个生成器对象。通过生成器对象，转化成列表或者元组。</p>
-<p>也可以使用生成器对象的<code>__next__()</code>方法进行遍历，或者直接作为迭代器对象来使用。不管什么方式使用，元素访问结束后，如果需要重新访问其中的元素，必须重新创建该生成器对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 请注意下面的代码创建的不是一个元组而是一个生成器对象</span><br><span class="line"># 通过生成器可以获取到数据但它不占用额外的空间存储数据</span><br><span class="line"># 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)</span><br><span class="line">import sys</span><br><span class="line">f = (x ** 2 for x in range(1, 1000))</span><br><span class="line">print(sys.getsizeof(f))  # 相比生成式生成器不占用存储数据的空间</span><br><span class="line">print(f) #生成器对象 </span><br><span class="line">for val in f:</span><br><span class="line">    print(val) # 访问完成需要再次创建</span><br><span class="line">print(list(f)) #空列表</span><br><span class="line"></span><br><span class="line">s = (x*2 for x in range(5)) </span><br><span class="line">print(tuple(s)) #tuple 函数转换为元组</span><br><span class="line"></span><br><span class="line">s = (x*2 for x in range(5))</span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__()) </span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__()) </span><br><span class="line">print(&#x27;next 方法获取元素：&#x27;,s.__next__())</span><br></pre></td></tr></table></figure>
 
-<p>除了上面提到的生成器语法，Python中还有另外一种定义生成器的方式，就是通过<code>yield</code>关键字将一个普通函数改造成生成器函数。下面的代码演示了如何实现一个生成<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波拉切数列<i class="fas fa-external-link-alt"></i></a>的生成器。所谓斐波拉切数列可以通过下面<a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92">递归<i class="fas fa-external-link-alt"></i></a>的方法来进行定义：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for _ in range(n):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        yield a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for val in fib(20):</span><br><span class="line">        print(val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h4 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h4><p>以<code>a =hello</code>，<code>b = world</code> 为例：</p>
+<table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">字符串连接</td>
+<td align="center">a+b==&gt;’helloworld’</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">重复输出字符串</td>
+<td align="center">a*2==&gt;’helloworld’</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">通过索引获取字符串中字符</td>
+<td align="center">a[1]==&gt;’e’</td>
+</tr>
+<tr>
+<td align="center">[:]</td>
+<td align="center">截取字符串中的一部分，遵循<strong>左闭右开</strong>原则</td>
+<td align="center">a[1:4]==&gt;’ell’</td>
+</tr>
+<tr>
+<td align="center">in</td>
+<td align="center">成员运算符 - 如果字符串中包含给定的字符返回 True</td>
+<td align="center">“H” in a==&gt;True</td>
+</tr>
+<tr>
+<td align="center">not in</td>
+<td align="center">成员运算符 - 如果字符串中不包含给定的字符返回 True</td>
+<td align="center">“M” not in a==&gt;True</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">格式字符串</td>
+<td align="center">不推荐使用</td>
+</tr>
+</tbody></table>
+<p>如下实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">s1 = &#x27;hello &#x27; * 3</span><br><span class="line">print(s1) # hello hello hello </span><br><span class="line">s2 = &#x27;world&#x27;</span><br><span class="line">s1 += s2</span><br><span class="line">print(s1) # hello hello hello world</span><br><span class="line">print(&#x27;ll&#x27; in s1) # True</span><br><span class="line">print(&#x27;good&#x27; in s1) # False</span><br><span class="line">str2 = &#x27;abc123456&#x27;</span><br><span class="line"># 从字符串中取出指定位置的字符(下标运算)</span><br><span class="line">print(str2[2]) # c</span><br><span class="line">print(str2[-7]) # c</span><br><span class="line"># 字符串切片(从指定的开始索引到指定的结束索引)</span><br><span class="line">print(str2[2:5]) # c12</span><br><span class="line">print(str2[2:]) # c123456</span><br><span class="line">print(str2[2::2]) # c246</span><br><span class="line">print(str2[::2]) # ac246</span><br><span class="line">print(str2[::-1]) # 654321cba</span><br><span class="line">print(str2[-3:-1]) # 45</span><br></pre></td></tr></table></figure>
 
-<h4 id="元组的访问"><a href="#元组的访问" class="headerlink" title="元组的访问"></a>元组的访问</h4><p>元组的元素访问和列表一样，只不过返回的仍然是元组对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">print(a[1]) </span><br><span class="line">print(a[1:3]) </span><br><span class="line">print(a[:4])</span><br><span class="line">for i in a:</span><br><span class="line">	print(i) #元组遍历</span><br></pre></td></tr></table></figure>
+<h4 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h4><p>可以尝试下面代码看看输出什么：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str = &#x27;hello&#x27;</span><br><span class="line">name1 = &#x27;python&#x27;</span><br><span class="line">name2 = &#x27;world&#x27;</span><br><span class="line">print(&#x27;str,&#123;&#125; and &#123;&#125;&#x27;.format(name1,name2))</span><br><span class="line">print(f&#x27;str,&#123;name1&#125; and &#123;name2&#125;&#x27;)</span><br><span class="line">print(&#x27;str,&#123;0&#125;,&#123;1&#125; and &#123;1&#125;&#x27;.format(name1,name2))</span><br><span class="line">age = 10</span><br><span class="line">print(&#x27;age=&#123;:.1f&#125;&#x27;.format(age))</span><br><span class="line">print(f&#x27;&#123;1+2&#125;&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>列表关于排序的方法 list.sort()是修改原列表对象，元组没有该方法。如果要对元组排序，只能使用内置函数 sorted(tupleObj)，并生成新的列表对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (20,10,30,9,8) </span><br><span class="line">print(sorted(a))</span><br></pre></td></tr></table></figure>
-
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>元组在创建时间和占用的空间上面都优于列表。</p>
-<p>如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</p>
+<p>格式化的顺序：<code>&#123;:&lt;填充&gt;&lt;对齐&gt;&lt;宽度&gt;&lt;,&gt;&lt;.精度&gt;&lt;类型&gt;&#125;</code><br>​                 对齐方式：<code>^</code>居中，<code>&lt;</code>左对齐，<code>&gt;</code>右对齐</p>
+<h4 id="常用字符串的操作"><a href="#常用字符串的操作" class="headerlink" title="常用字符串的操作"></a>常用字符串的操作</h4><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">count(str, beg= 0,end=len(string))</td>
+<td align="center">返回 str 在 string 里面出现的次数，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数</td>
+</tr>
+<tr>
+<td align="center">‘’字符串.isdigit()</td>
+<td align="center">如果字符串只包含数字则返回 True 否则返回 False</td>
+</tr>
+<tr>
+<td align="center">‘字符串’.isalpha()</td>
+<td align="center">如果字符串至少有一个字符并且所有字符都是字母或中文字则返回 True, 否则返回 False</td>
+</tr>
+<tr>
+<td align="center">‘字符串’.isalnum()</td>
+<td align="center">如果字符串至少有一个字符并且所有字符都是字母或数字则返 回 True，否则返回 False</td>
+</tr>
+<tr>
+<td align="center">‘分隔符’.join(seq)</td>
+<td align="center">以指定字符串作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串</td>
+</tr>
+<tr>
+<td align="center">len(string)</td>
+<td align="center">返回字符串长度</td>
+</tr>
+<tr>
+<td align="center">replace(old, new [, max])</td>
+<td align="center">把 将字符串中的 old 替换成 new,如果 max 指定，则替换不超过 max 次。</td>
+</tr>
+<tr>
+<td align="center">split(str=””, num=string.count(str))</td>
+<td align="center">以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num+1 个子字符串</td>
+</tr>
+<tr>
+<td align="center">strip([chars])</td>
+<td align="center">删除字符串两端的空格或指定字符。</td>
+</tr>
+</tbody></table>
 
         </div>
 
@@ -278,13 +433,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/02/17/python%E5%9F%BA%E7%A1%80%E7%AC%AC7%E8%AF%BE-%E5%AD%97%E5%85%B8/"
+                           href="/2022/02/08/python%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86%EF%BC%881%EF%BC%89/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第7课-字典</span>
+                                <span class="post-nav-title-item">python踩坑合集（1）</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -294,10 +449,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/11/python%E5%9F%BA%E7%A1%80%E7%AC%AC5%E8%AF%BE-%E5%88%97%E8%A1%A8/"
+                           href="/2022/02/06/python%E5%9F%BA%E7%A1%80%EF%BC%883%EF%BC%89-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础第5课-列表</span>
+                                <span class="post-nav-title-item">python基础第3课-分支结构和循环结构</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -492,7 +647,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BD%E5%9B%BA%E7%9A%84%E5%85%83%E7%BB%84"><span class="nav-text">顽固的元组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">元组的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">最基本的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-tuple-%E5%88%9B%E5%BB%BA%E5%85%83%E7%BB%84"><span class="nav-text">通过 tuple()创建元组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">元组的基本操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#zip%E5%88%9B%E5%BB%BA"><span class="nav-text">zip创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%85%83%E7%BB%84"><span class="nav-text">生成器推导式创建元组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-text">元组的访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%BC%95%E5%8F%B7"><span class="nav-text">三引号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E7%AC%A6"><span class="nav-text">转义符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">字符串运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-text">字符串格式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">常用字符串的操作</span></a></li></ol>
     </div>
 </div>
         </aside>
