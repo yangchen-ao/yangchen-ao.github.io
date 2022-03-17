@@ -9,7 +9,7 @@
     
     <title>
         
-            numpy基础（6） |
+            pandas基础（1）-Series数据类型 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">numpy基础（6）</span>
+            <span class="title-hover-animation">pandas基础（1）-Series数据类型</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-03-13 16:33:13</span>
-        <span class="mobile">2022-03-13 16:33</span>
+        <span class="pc">2022-03-17 09:23:46</span>
+        <span class="mobile">2022-03-17 09:23</span>
     </span>
     
     
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>715 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>880 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -229,124 +229,45 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h3><h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4><h5 id="dot函数详解"><a href="#dot函数详解" class="headerlink" title="dot函数详解"></a>dot函数详解</h5><p>在前面的<a href="https://xiaowog.top/2022/03/02/numpy%E5%9F%BA%E7%A1%80%EF%BC%883%EF%BC%89/">基础三</a>中我们提了矩阵内积函数dot，但只是简单的介绍，下面通过几个例子，想要大家更好的理解该函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">y = np.array([[6,23],[-1,7],[8,9]])</span><br><span class="line"># 下面两个表达式相等</span><br><span class="line">print(x.dot(y))</span><br><span class="line">print(np.dot(x,y))</span><br></pre></td></tr></table></figure>
+            <h3 id="pandas库"><a href="#pandas库" class="headerlink" title="pandas库"></a>pandas库</h3><p>前面介绍的numpy库主要是处理同质型的数值类数组数据，而pandas是用来处理表格型或异质型数据。</p>
+<p>同样的，我们会使用下面的快捷方式导入<code>import pandas as pd</code>，使用下面我们会有pd来代替pandas，为了简化代码。</p>
+<p>其中，你暂时只需要熟悉两个最重要的常用的数据类型：Series和DataFrame。</p>
+<h4 id="Series类型创建"><a href="#Series类型创建" class="headerlink" title="Series类型创建"></a>Series类型创建</h4><h5 id="简单创建"><a href="#简单创建" class="headerlink" title="简单创建"></a>简单创建</h5><p>series是一种一维数组型对象，它包含了一个值序列和索引（数据标签）。</p>
+<p>其创建需要通过<strong>函数Series</strong>来完成，下面我们来创建一个简单的序列—数组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = pd.Series([4,7,-5,3])</span><br><span class="line">print(obj)</span><br></pre></td></tr></table></figure>
 
-<p>一个二维数组和一个长度合适的一维数组之间的矩阵乘积，其结果是一个一维数组（二维数组的列数等于一维数组的行数）</p>
-<p>特殊符号@也可作为矩阵点乘操作：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">y = np.array([[6,23],[-1,7],[8,9]])</span><br><span class="line">print(x@y)</span><br></pre></td></tr></table></figure>
+<p>如果我们不指定索引，默认生成的索引是从0到N-1。但我们可以通过在创建时指定index来指定序列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj2 = pd.Series([4,7,-5,3],index=[&#x27;d&#x27;,&#x27;b&#x27;,&#x27;a&#x27;,&#x27;c&#x27;])</span><br><span class="line">print(obj2)</span><br><span class="line">print(obj2.index)</span><br></pre></td></tr></table></figure>
 
-<h5 id="linalg–矩阵分解"><a href="#linalg–矩阵分解" class="headerlink" title="linalg–矩阵分解"></a>linalg–矩阵分解</h5><table>
-<thead>
-<tr>
-<th align="left">函数</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">diag</td>
-<td align="left">将一个方阵的对角（或非对角）元素作为一维数组返回，或者将一维数组转换成一个方阵，并且在非对角线上有零点</td>
-</tr>
-<tr>
-<td align="left">dot</td>
-<td align="left">矩阵点乘</td>
-</tr>
-<tr>
-<td align="left">trace</td>
-<td align="left">计算对角元素和</td>
-</tr>
-<tr>
-<td align="left">det</td>
-<td align="left">计算矩阵的行列式</td>
-</tr>
-<tr>
-<td align="left">eig</td>
-<td align="left">计算方阵的特征值和特征向量</td>
-</tr>
-<tr>
-<td align="left">inv</td>
-<td align="left">计算方阵的逆矩阵</td>
-</tr>
-<tr>
-<td align="left">pinv</td>
-<td align="left">计算矩阵的伪逆</td>
-</tr>
-<tr>
-<td align="left">qr</td>
-<td align="left">进行矩阵的qr分解（q是正交矩阵，r是上三角矩阵）</td>
-</tr>
-<tr>
-<td align="left">svd</td>
-<td align="left">计算奇异值分解（SVD）</td>
-</tr>
-<tr>
-<td align="left">solve</td>
-<td align="left">求解x的线性系统Ax = b，其中A是方阵</td>
-</tr>
-<tr>
-<td align="left">lstsq</td>
-<td align="left">计算Ax = b的最小二乘解</td>
-</tr>
-</tbody></table>
-<h4 id="伪随机数生成"><a href="#伪随机数生成" class="headerlink" title="伪随机数生成"></a>伪随机数生成</h4><p>numpy库中含random模块，可以高效地生成多种概率分布下的完整样本值数组。</p>
-<h5 id="normal函数"><a href="#normal函数" class="headerlink" title="normal函数"></a>normal函数</h5><p>返回一个正态分布样本数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">samples = np.random.normal(size=(4,4))</span><br><span class="line">print(samples)</span><br></pre></td></tr></table></figure>
+<h5 id="字典创建"><a href="#字典创建" class="headerlink" title="字典创建"></a>字典创建</h5><p>从另一个角度，它是一个长度固定且有序的字典类型数据。</p>
+<p>因此，我们也可以通过一个字典作为参数来创建Series数据类型。此时，字典的值作为Series的值，而字典的键作为Series的索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sdata = &#123;&#x27;Ohio&#x27;:35000,&#x27;Texas&#x27;:71000,&#x27;Oregon&#x27;:16000,&#x27;Utah&#x27;:5000&#125;</span><br><span class="line">obj2 = pd.Series(sdata)</span><br><span class="line">print(obj3)</span><br></pre></td></tr></table></figure>
 
-<p>我们称这些数据为伪随机数，因为他们是由于具有确定性行为地算法根据随机数生成器中的随机数种子生成的，你可以通过<code>np.random.seed()</code>函数来更改随机数产成相同的数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(1234)</span><br><span class="line">samples = np.random.normal(size=(4,4))</span><br><span class="line">print(samples)</span><br></pre></td></tr></table></figure>
+<p>如上，产生的Series的索引是排序好的字典键。同样的，我们可以通过自定义索引来进行数据的筛选和排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sdata = &#123;&#x27;Ohio&#x27;:35000,&#x27;Texas&#x27;:71000,&#x27;Oregon&#x27;:16000,&#x27;Utah&#x27;:5000&#125;</span><br><span class="line">obj2 = pd.Series(sdata，index=[&#x27;California&#x27;,&#x27;Ohio&#x27;,&#x27;Oregon&#x27;,&#x27;Texas&#x27;])</span><br><span class="line">print(obj2)</span><br></pre></td></tr></table></figure>
 
-<p>np.random中的数据生成函数公用了一个全局的随机数种子。你也可以通过使用np.random.RandomState生成一个随机数生成器，是使数据独立于其他的随机数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rng = np.random.RandomState(1234)</span><br><span class="line">print(rng.randn(10)￼)</span><br></pre></td></tr></table></figure>
+<p>如果设置的索引（’California’）没有出现在字典中，则设置值为NaN（这是pandas中标记缺失值的方式），而字典中的（’Utah’）并不在索引中，所以他被排除在结果对象外。</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>我们可以通过属性values和属性index来获取Series对象的值和索引（默认索引与range函数返回结果类似）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj = pd.Series([4,7,-5,3])</span><br><span class="line">print(obj.values)</span><br><span class="line">print(obj.index) #返回对象与range(4)类似</span><br></pre></td></tr></table></figure>
 
-<h5 id="random常用函数"><a href="#random常用函数" class="headerlink" title="random常用函数"></a>random常用函数</h5><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>seed</td>
-<td>向随机数生成器传递随机状态种子</td>
-</tr>
-<tr>
-<td>permutation</td>
-<td>返回一个序列的随机排序，或者返回一个乱序的整数范围序列</td>
-</tr>
-<tr>
-<td>shuffle</td>
-<td>随机排列一个序列</td>
-</tr>
-<tr>
-<td>rand</td>
-<td>从均匀分布中抽取样本</td>
-</tr>
-<tr>
-<td>randint</td>
-<td>根据给定的由低到高的范围抽取随机整数</td>
-</tr>
-<tr>
-<td>randn</td>
-<td>从均值0方差1的正态分布中抽取样本</td>
-</tr>
-<tr>
-<td>binomial</td>
-<td>从二项分布中抽取样本</td>
-</tr>
-<tr>
-<td>normal</td>
-<td>从正态分布中抽取样本</td>
-</tr>
-<tr>
-<td>beta</td>
-<td>从beta分布中抽取样本</td>
-</tr>
-<tr>
-<td>chisquare</td>
-<td>从卡方分布中抽取样本</td>
-</tr>
-</tbody></table>
-<p>到此，numpy函数基础就结束了。。。</p>
+<p>Series数据自身和其索引都具有name属性，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sdata = &#123;&#x27;Ohio&#x27;:35000,&#x27;Texas&#x27;:71000,&#x27;Oregon&#x27;:16000,&#x27;Utah&#x27;:5000&#125;</span><br><span class="line">obj2 = pd.Series(sdata，index=[&#x27;California&#x27;,&#x27;Ohio&#x27;,&#x27;Oregon&#x27;,&#x27;Texas&#x27;])</span><br><span class="line"># 给oobj2命名</span><br><span class="line">obj2.name = &#x27;population&#x27;</span><br><span class="line">obj2.index.name = &#x27;state&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>而且Series具有自动对齐的特性—数据类型的对齐</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj1 = pd.Series([4,7,-5,3],dtype=int64)</span><br><span class="line">obj2 = pd.Series([4,7,-5,3],dtype=float64)</span><br><span class="line">print(obj2+obj1)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h4><p>它同样可以对数据进行类似与NumPy的操作，数学函数、与标量相乘、布尔索引进行数据过滤、判断相关值是否存在……</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">obj2 = pd.Series([4,7,-5,3],index=[&#x27;d&#x27;,&#x27;b&#x27;,&#x27;a&#x27;,&#x27;c&#x27;])</span><br><span class="line">print(obj2)</span><br><span class="line"># 布尔索引进行过滤</span><br><span class="line">print(obj2[obj2&gt;2])</span><br><span class="line"># 与标量相乘</span><br><span class="line">print(obj2*2)</span><br><span class="line"># 数学函数</span><br><span class="line">print(np.exp(obj2))</span><br><span class="line"># 判断是否存在</span><br><span class="line">print(&#x27;b&#x27; in obj2)</span><br><span class="line">print(&#x27;e&#x27; in obj2)</span><br></pre></td></tr></table></figure>
+
+<h5 id="判断缺失值"><a href="#判断缺失值" class="headerlink" title="判断缺失值"></a>判断缺失值</h5><p>我们在此会通过isnull和notnull方法来实现缺失值的查找</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sdata = &#123;&#x27;Ohio&#x27;:35000,&#x27;Texas&#x27;:71000,&#x27;Oregon&#x27;:16000,&#x27;Utah&#x27;:5000&#125;</span><br><span class="line">obj2 = pd.Series(sdata，index=[&#x27;California&#x27;,&#x27;Ohio&#x27;,&#x27;Oregon&#x27;,&#x27;Texas&#x27;])</span><br><span class="line">print(obj3.isnull)</span><br><span class="line">print(obj3.notnull)</span><br></pre></td></tr></table></figure>
+
+<h5 id="改变已有索引"><a href="#改变已有索引" class="headerlink" title="改变已有索引"></a>改变已有索引</h5><p>Series可以通过按位赋值的方式来改变索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj1 = pd.Series([4,7,-5,3])</span><br><span class="line">obj.index = [&#x27;Bob&#x27;,&#x27;Steve&#x27;,&#x27;Jeff&#x27;,&#x27;Ryan&#x27;]</span><br><span class="line">print(obj)</span><br></pre></td></tr></table></figure>
+
+<p>今日完结。。。</p>
 
         </div>
 
@@ -369,10 +290,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/03/13/numpy%E5%9F%BA%E7%A1%80%EF%BC%885%EF%BC%89/"
+                           href="/2022/03/13/numpy%E5%9F%BA%E7%A1%80%EF%BC%886%EF%BC%89-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy基础（5）</span>
+                                <span class="post-nav-title-item">numpy基础（6）-常用函数</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -567,7 +488,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%BA%93"><span class="nav-text">numpy库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="nav-text">线性代数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#dot%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3"><span class="nav-text">dot函数详解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linalg%E2%80%93%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3"><span class="nav-text">linalg–矩阵分解</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%94%9F%E6%88%90"><span class="nav-text">伪随机数生成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#normal%E5%87%BD%E6%95%B0"><span class="nav-text">normal函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#random%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">random常用函数</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas%E5%BA%93"><span class="nav-text">pandas库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Series%E7%B1%BB%E5%9E%8B%E5%88%9B%E5%BB%BA"><span class="nav-text">Series类型创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%88%9B%E5%BB%BA"><span class="nav-text">简单创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E5%88%9B%E5%BB%BA"><span class="nav-text">字典创建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C"><span class="nav-text">简单操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="nav-text">判断缺失值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E5%B7%B2%E6%9C%89%E7%B4%A2%E5%BC%95"><span class="nav-text">改变已有索引</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

@@ -9,7 +9,7 @@
     
     <title>
         
-            numpy基础（5） |
+            numpy基础（6）-常用函数 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">numpy基础（5）</span>
+            <span class="title-hover-animation">numpy基础（6）-常用函数</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-03-13 09:20:15</span>
-        <span class="mobile">2022-03-13 09:20</span>
+        <span class="pc">2022-03-13 16:33:13</span>
+        <span class="mobile">2022-03-13 16:33</span>
     </span>
     
     
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>761 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>715 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -229,68 +229,124 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h3><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p>和python的内建列表相似，ndarray数据也可以使用sort方法进行排序。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(6)</span><br><span class="line">print(arr.sort)</span><br></pre></td></tr></table></figure>
+            <h3 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h3><h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4><h5 id="dot函数详解"><a href="#dot函数详解" class="headerlink" title="dot函数详解"></a>dot函数详解</h5><p>在前面的<a href="https://xiaowog.top/2022/03/02/numpy%E5%9F%BA%E7%A1%80%EF%BC%883%EF%BC%89/">基础三</a>中我们提了矩阵内积函数dot，但只是简单的介绍，下面通过几个例子，想要大家更好的理解该函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">y = np.array([[6,23],[-1,7],[8,9]])</span><br><span class="line"># 下面两个表达式相等</span><br><span class="line">print(x.dot(y))</span><br><span class="line">print(np.dot(x,y))</span><br></pre></td></tr></table></figure>
 
-<p>在多维函数中，你可以通过传递一个参数axis来指定沿着哪一轴向进行排序，例如<code>arr.sort(axis = 0)</code>为对每一列进行拷贝</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(3,4)</span><br><span class="line">print(arr.sort(axis=0))</span><br><span class="line"></span><br><span class="line"># 对每一行进行排序</span><br><span class="line">print(arr.sort(1))</span><br></pre></td></tr></table></figure>
+<p>一个二维数组和一个长度合适的一维数组之间的矩阵乘积，其结果是一个一维数组（二维数组的列数等于一维数组的行数）</p>
+<p>特殊符号@也可作为矩阵点乘操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">y = np.array([[6,23],[-1,7],[8,9]])</span><br><span class="line">print(x@y)</span><br></pre></td></tr></table></figure>
 
-<p>同样的，和其他方法相似，他返回的是原数组的视图，可以通过修改视图来修改原数组，而顶层的<code>np.sort</code>函数返回的是对原数组的拷贝，而不是视图。</p>
-<p>在没有把握之前可以先用顶层函数进行排序，保留原数组，避免对原数组进行直接修改。</p>
-<h4 id="基础集合操作"><a href="#基础集合操作" class="headerlink" title="基础集合操作"></a>基础集合操作</h4><h5 id="唯一值排序"><a href="#唯一值排序" class="headerlink" title="唯一值排序"></a>唯一值排序</h5><p>numpy库中包含了一些对一维ndarray数组进行操作的方法，其中，最常用的一个函数就是<code>np.unique</code>，返回数组中唯一值的排序后形成的数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([1,2,3,5,8,1,4,2,3,8,5])</span><br><span class="line">print(np.unique(arr)) # [1,2,3,4,5,8]</span><br><span class="line">arr1 = np.array([&#x27;Joe&#x27;,&#x27;Jack&#x27;,&#x27;Jack&#x27;,&#x27;BOb&#x27;,&#x27;Will&#x27;,&#x27;BOb&#x27;,&#x27;Joe&#x27;])</span><br><span class="line">print(np.unique(arr1))</span><br></pre></td></tr></table></figure>
-
-<h5 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h5><p>另一个常用的函数，<code>np.in1d</code>可以检查一个数组中的值是否在另一个数组中，并返回一个布尔值数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">valus = arr.array([6,0,0,3,4,7])</span><br><span class="line">print(np.unique(valus,[2,3,6]))</span><br></pre></td></tr></table></figure>
-
-<h5 id="集合操作总结"><a href="#集合操作总结" class="headerlink" title="集合操作总结"></a>集合操作总结</h5><table>
+<h5 id="linalg–矩阵分解"><a href="#linalg–矩阵分解" class="headerlink" title="linalg–矩阵分解"></a>linalg–矩阵分解</h5><table>
 <thead>
 <tr>
-<th>方法</th>
+<th align="left">函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">diag</td>
+<td align="left">将一个方阵的对角（或非对角）元素作为一维数组返回，或者将一维数组转换成一个方阵，并且在非对角线上有零点</td>
+</tr>
+<tr>
+<td align="left">dot</td>
+<td align="left">矩阵点乘</td>
+</tr>
+<tr>
+<td align="left">trace</td>
+<td align="left">计算对角元素和</td>
+</tr>
+<tr>
+<td align="left">det</td>
+<td align="left">计算矩阵的行列式</td>
+</tr>
+<tr>
+<td align="left">eig</td>
+<td align="left">计算方阵的特征值和特征向量</td>
+</tr>
+<tr>
+<td align="left">inv</td>
+<td align="left">计算方阵的逆矩阵</td>
+</tr>
+<tr>
+<td align="left">pinv</td>
+<td align="left">计算矩阵的伪逆</td>
+</tr>
+<tr>
+<td align="left">qr</td>
+<td align="left">进行矩阵的qr分解（q是正交矩阵，r是上三角矩阵）</td>
+</tr>
+<tr>
+<td align="left">svd</td>
+<td align="left">计算奇异值分解（SVD）</td>
+</tr>
+<tr>
+<td align="left">solve</td>
+<td align="left">求解x的线性系统Ax = b，其中A是方阵</td>
+</tr>
+<tr>
+<td align="left">lstsq</td>
+<td align="left">计算Ax = b的最小二乘解</td>
+</tr>
+</tbody></table>
+<h4 id="伪随机数生成"><a href="#伪随机数生成" class="headerlink" title="伪随机数生成"></a>伪随机数生成</h4><p>numpy库中含random模块，可以高效地生成多种概率分布下的完整样本值数组。</p>
+<h5 id="normal函数"><a href="#normal函数" class="headerlink" title="normal函数"></a>normal函数</h5><p>返回一个正态分布样本数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">samples = np.random.normal(size=(4,4))</span><br><span class="line">print(samples)</span><br></pre></td></tr></table></figure>
+
+<p>我们称这些数据为伪随机数，因为他们是由于具有确定性行为地算法根据随机数生成器中的随机数种子生成的，你可以通过<code>np.random.seed()</code>函数来更改随机数产成相同的数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(1234)</span><br><span class="line">samples = np.random.normal(size=(4,4))</span><br><span class="line">print(samples)</span><br></pre></td></tr></table></figure>
+
+<p>np.random中的数据生成函数公用了一个全局的随机数种子。你也可以通过使用np.random.RandomState生成一个随机数生成器，是使数据独立于其他的随机数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rng = np.random.RandomState(1234)</span><br><span class="line">print(rng.randn(10)￼)</span><br></pre></td></tr></table></figure>
+
+<h5 id="random常用函数"><a href="#random常用函数" class="headerlink" title="random常用函数"></a>random常用函数</h5><table>
+<thead>
+<tr>
+<th>函数</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>unique(x)</td>
-<td>计算x数组的唯一值，并排序</td>
+<td>seed</td>
+<td>向随机数生成器传递随机状态种子</td>
 </tr>
 <tr>
-<td>intersect1d(x,y)</td>
-<td>计算x和y的交集，并排序</td>
+<td>permutation</td>
+<td>返回一个序列的随机排序，或者返回一个乱序的整数范围序列</td>
 </tr>
 <tr>
-<td>union1d(x,y)</td>
-<td>计算x和y的并集，并排序</td>
+<td>shuffle</td>
+<td>随机排列一个序列</td>
 </tr>
 <tr>
-<td>setdiff1d(x,y)</td>
-<td>差集，计算不在y中的x元素</td>
+<td>rand</td>
+<td>从均匀分布中抽取样本</td>
 </tr>
 <tr>
-<td>in1d(x,y)</td>
-<td>计算x中的元素是否包含在y中，返回一个布尔值数组</td>
+<td>randint</td>
+<td>根据给定的由低到高的范围抽取随机整数</td>
 </tr>
 <tr>
-<td>setxor1d(x,y)</td>
-<td>异或集，在x中或在y中，但不是属于x，y交集的元素</td>
+<td>randn</td>
+<td>从均值0方差1的正态分布中抽取样本</td>
+</tr>
+<tr>
+<td>binomial</td>
+<td>从二项分布中抽取样本</td>
+</tr>
+<tr>
+<td>normal</td>
+<td>从正态分布中抽取样本</td>
+</tr>
+<tr>
+<td>beta</td>
+<td>从beta分布中抽取样本</td>
+</tr>
+<tr>
+<td>chisquare</td>
+<td>从卡方分布中抽取样本</td>
 </tr>
 </tbody></table>
-<h4 id="文件的输入和输出"><a href="#文件的输入和输出" class="headerlink" title="文件的输入和输出"></a>文件的输入和输出</h4><p>Numpy可以将数据以文本或二进制文件的形式储存到硬盘中，也可以将储存在硬盘中的文件读取出来。利用到的函数为<code>np.save()</code>和<code>np.load()</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line">np.save(&#x27;some_array&#x27;,arr)</span><br></pre></td></tr></table></figure>
-
-<p>这样，我们就把arr数组存到文件some_array.npy中了，可以看出，如果文件存放路径中没有写文件类型，他会默认加上**.npy**。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.load(&#x27;some_array.npy&#x27;)</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
-
-<p>此时，文件名中必须加后缀文件类型。</p>
-<p>你也可以使用<code>np.savez</code>将多个数组以字典(未压缩)的形式保存在同一个**.npz**文件中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.arange(5)</span><br><span class="line">arr2 = np.arange(5,10)</span><br><span class="line">np.savez(&#x27;array_achive.npz&#x27;,a=arr1,b=arr2)</span><br></pre></td></tr></table></figure>
-
-<p>当你载入一个**.npz**文件的时候，你会获得一个字典型的对象，进而获得一个单个数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch = np.load(&#x27;array_achive.npz&#x27;)</span><br><span class="line">print(arch[b])</span><br></pre></td></tr></table></figure>
-
-<p>而np.savez_compressed将多个数组以压缩的形式保存在同一个**.npz**文件中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.arange(5)</span><br><span class="line">arr2 = np.arange(5,10)</span><br><span class="line">np.savez_compressed(&#x27;arrays_compressed.npz&#x27;,a=arr1,b=arr2)</span><br></pre></td></tr></table></figure>
-
+<p>到此，numpy函数基础就结束了。。。</p>
 
         </div>
 
@@ -312,13 +368,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/03/13/numpy%E5%9F%BA%E7%A1%80%EF%BC%886%EF%BC%89/"
+                           href="/2022/03/17/pandas%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89-Series%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy基础（6）</span>
+                                <span class="post-nav-title-item">pandas基础（1）-Series数据类型</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -328,10 +384,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/03/10/numpy%E5%9F%BA%E7%A1%80%EF%BC%884%EF%BC%89/"
+                           href="/2022/03/13/numpy%E5%9F%BA%E7%A1%80%EF%BC%885%EF%BC%89-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy基础（4）</span>
+                                <span class="post-nav-title-item">numpy基础（5）-基础操作</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -526,7 +582,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%BA%93"><span class="nav-text">numpy库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C"><span class="nav-text">基础集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E5%80%BC%E6%8E%92%E5%BA%8F"><span class="nav-text">唯一值排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="nav-text">包含关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="nav-text">集合操作总结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA"><span class="nav-text">文件的输入和输出</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%BA%93"><span class="nav-text">numpy库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="nav-text">线性代数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#dot%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3"><span class="nav-text">dot函数详解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linalg%E2%80%93%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3"><span class="nav-text">linalg–矩阵分解</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%94%9F%E6%88%90"><span class="nav-text">伪随机数生成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#normal%E5%87%BD%E6%95%B0"><span class="nav-text">normal函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#random%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">random常用函数</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

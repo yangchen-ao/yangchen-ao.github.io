@@ -9,7 +9,7 @@
     
     <title>
         
-            numpy基础（2） |
+            numpy基础（3）-通用函数 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">numpy基础（2）</span>
+            <span class="title-hover-animation">numpy基础（3）-通用函数</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-28 08:32:25</span>
-        <span class="mobile">2022-02-28 08:32</span>
+        <span class="pc">2022-03-02 08:55:06</span>
+        <span class="mobile">2022-03-02 08:55</span>
     </span>
     
     
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>867 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
         </span>
     
     
@@ -229,46 +229,110 @@
         
 
         <div class="article-content markdown-body">
-            <p>补录：astype方法总是会重新生成一个新数组。</p>
-<h3 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h3><h4 id="NumPy数组算术"><a href="#NumPy数组算术" class="headerlink" title="NumPy数组算术"></a>NumPy数组算术</h4><p>ndarray数组支持进行批量操作而无需任何循环。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([[1,2,3],[4,5,6]])</span><br><span class="line"># 对应位置上的元素分别相乘</span><br><span class="line">print(arr * arr)</span><br><span class="line"># 对应位置上的元素分别相减</span><br><span class="line">print(arr - arr)</span><br><span class="line"># 对应位置上的元素分别除一，一为被除数</span><br><span class="line">print(1 / arr)</span><br><span class="line"># 对应位置上的元素分别开根号</span><br><span class="line">print(arr ** 0.5)</span><br></pre></td></tr></table></figure>
+            <h3 id="ndarray数据"><a href="#ndarray数据" class="headerlink" title="ndarray数据"></a>ndarray数据</h3><h4 id="进阶索引和切片"><a href="#进阶索引和切片" class="headerlink" title="进阶索引和切片"></a>进阶索引和切片</h4><h5 id="神奇索引"><a href="#神奇索引" class="headerlink" title="神奇索引"></a>神奇索引</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr = np.empty((8,4))</span><br><span class="line">for i in range(8):</span><br><span class="line">	arr[i] = i</span><br><span class="line">print(arr)</span><br><span class="line">print(arr[[4,3,0,6]) # 最高维度，此处是二维--行</span><br><span class="line">print(arr[[4,3,0,6],[2,3，1，4]])</span><br><span class="line">print(arr[[-3,-5,-7]]) # 负的索引，将从尾部进行选择</span><br></pre></td></tr></table></figure>
 
-<p>同尺寸数组之间的比较，会返回一个布尔值的数组：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">arr2 = np.array([[0,4,1],[7,2,12])</span><br><span class="line">print(arr1&gt;arr2)</span><br></pre></td></tr></table></figure>
+<p>​    如上面的倒数第二个索引，两个列表元素依次为行、列，对应位置组成一个索引，如下面的第一个元素位置为（4，2），所以前后的长度必须相同或者其中一个为一。</p>
+<p>​    注：神奇索引与切片和布尔索引不同，它总是将数据复制到一个新的数组中，所以改变神奇索引 中的值并不会修改原数组</p>
+<h4 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h4><h5 id="数组转置和换轴"><a href="#数组转置和换轴" class="headerlink" title="数组转置和换轴"></a>数组转置和换轴</h5><p>​    转置是一种特殊的数据重组形式，它可以返回底层数据的视图而不需要复制任何内容，所以修改转置数组的值会改变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(15).reshape((3,5))</span><br><span class="line">print(arr)</span><br><span class="line">arr1 = arr.T</span><br><span class="line">print(arr1)</span><br><span class="line">arr1[(0,2)] = 0</span><br><span class="line">print(arr)</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
 
-<p>注：大部分的操作是建立在相同尺寸的条件上的。</p>
-<h4 id="基础索引与切片"><a href="#基础索引与切片" class="headerlink" title="基础索引与切片"></a>基础索引与切片</h4><h5 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h5><p>一维数组的读取操作和列表操作类似。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line"># 切片读取整个数组</span><br><span class="line">print(arr) #省略[:]</span><br><span class="line">print(arr[:])</span><br><span class="line"># 索引读取一维数组的第六位元素</span><br><span class="line">print(arr[5])</span><br><span class="line"># 切片读取一维数组的五六七位元素</span><br><span class="line">print(arr[5:8])</span><br><span class="line">print(arr[5,6,7])</span><br><span class="line"># 切片读取一维数组的前四位元素</span><br><span class="line">print(arr[:4])</span><br><span class="line"># 修改五六七位元素为12</span><br><span class="line">arr[5:8]=12</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
+<p>​    对于更高维度的数组，transpose方法可以接受包含轴编号的元组，用于置换轴，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(16).reshape((2,2,4))</span><br><span class="line">arr1 = arr.transpose((1,0,2)) # 交换第三维和第二维---行</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
 
-<p>​    数组的切片为原数组的视图，并不会进行复制，修改ndarray的切片会反映到原数组上。</p>
-<p>​    而对于python内建列表的话，通过索引复制给另一个变量的时候，两个变量公用一块内存块，而使用切片后就是两块地址。</p>
-<h5 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h5><p>​    在一个二维数组，每个索引值对应的元素不再是一个值，而是一个一维数组。(根据最高维进行索引)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line">print(arr2[1])</span><br><span class="line">print(arr2)</span><br></pre></td></tr></table></figure>
+<p>也可以通过swapaxes的方法交换两个轴，如 ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arnage(16).reshape((2,2,4))</span><br><span class="line">arr1 = arr.swapaxes(1,2)</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
 
-<p>当然也可以通过别的方法来获取单个元素。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line">print(arr[0][2])</span><br><span class="line">print(arr2[0,2])</span><br></pre></td></tr></table></figure>
+<p>swapaxes同样返回的是数据的视图，而没对数据进行复制。</p>
+<h5 id="矩阵的内积"><a href="#矩阵的内积" class="headerlink" title="矩阵的内积"></a>矩阵的内积</h5><p>​    一个行向量乘以一个列向量的内积，又叫作点积，结果为一个数，如同矩阵的乘法，我们使用np.dot可实现上述操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(6,3)</span><br><span class="line">print(arr)</span><br><span class="line">np.dot(drr,drr.T) #得到6行3列的矩阵</span><br></pre></td></tr></table></figure>
 
-<p>二维数组的切片操作：（对高维操作，对低维操作）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr2 = np.array([[1,2,3],[4,5,6],[7,8,9]])</span><br><span class="line"># 切片读取数组的前两列</span><br><span class="line">print([:,:2])</span><br><span class="line"># 切片读取数组的前两行</span><br><span class="line">print([:2])</span><br></pre></td></tr></table></figure>
+<h4 id="通用函数–快速的族元素数组函数"><a href="#通用函数–快速的族元素数组函数" class="headerlink" title="通用函数–快速的族元素数组函数"></a>通用函数–快速的族元素数组函数</h4><p>​    通用函数–是指在ndarray数据中进行元素操作的函数，是对某些简单函数的封装，如sqrt或exp函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = arange(10)</span><br><span class="line">print(arr)</span><br><span class="line"># 对每个元素进行开平方</span><br><span class="line">print(np.sqrt(arr))</span><br><span class="line"># 将每个元素作为e的指数得到结果</span><br><span class="line">print(np.exp(arr))</span><br></pre></td></tr></table></figure>
 
-<p>三维数组也是如此：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr3 = [[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]]</span><br><span class="line">print(arr3)</span><br><span class="line">print(arr3[:,:,:])</span><br><span class="line">print(arr3[0])</span><br><span class="line">print(arr[1,0]) #读取[7，8，9]</span><br><span class="line">print(arr[:1,:1,:2])</span><br></pre></td></tr></table></figure>
+<p>还有一些二元通用函数，如add或maximum函数，返回一个数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.randn(8)</span><br><span class="line">y = np.random.randn(8)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line"># 两个数组对应位置取两组最大</span><br><span class="line">print(np.maximum(x,y))</span><br><span class="line"># 返回两个数组对应位置的数字相加</span><br><span class="line">print(np.add(x,y))</span><br></pre></td></tr></table></figure>
 
-<p>也可以进行copy，修改等的操作。</p>
-<h4 id="copy函数复制"><a href="#copy函数复制" class="headerlink" title="copy函数复制"></a>copy函数复制</h4><p>如果你想要得到切片的复制而不是一份视图的话，你必须显式地复制这个数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line">print(arr)</span><br><span class="line">arr1 = arr[5:8].copy()</span><br><span class="line">arr1[1] = 0</span><br><span class="line">print(arr1)</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
+<p>​    同样也是有返回多个数组，如modf，返回数组的整数部分和小数部分，两部分的的数组符号与原数组相同，整数部分一浮点型表示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(7)*5</span><br><span class="line">print(arr)</span><br><span class="line">remainder, whole_part = np.modf(arr)</span><br><span class="line">print(remainder)</span><br><span class="line">print(whole_part)</span><br></pre></td></tr></table></figure>
 
-<h4 id="布尔索引"><a href="#布尔索引" class="headerlink" title="布尔索引"></a>布尔索引</h4><p>在索引数组时可以传入布尔值数组，来进行数据的筛选。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = np.array([[1,2,3],[4,5,6]])</span><br><span class="line">bool_data = data &gt;5</span><br><span class="line">print(data[bool_data])</span><br><span class="line">print(data[~bool_data])</span><br><span class="line">bool_data2 = data&lt;2 | data&gt;7</span><br><span class="line">print(data[bool_data2])</span><br><span class="line"># 可以对所筛选的值进行修改</span><br><span class="line">data[~bool_data2] = 0</span><br></pre></td></tr></table></figure>
+<p>注：整数型ndarray也可以对其进行modf，得到小数部分全部为0.</p>
+<p>通用函数也可以接受一个可选参数out，将得到的结果赋值给out</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(7)*5</span><br><span class="line">print(arr)</span><br><span class="line">np.sqrt(arr,arr)</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>通过对数组进行逻辑运算来获得布尔数组，然后将其传入索引中，进而获得符合条件的元素。</li>
-<li>同样，也可以用户自己定义布尔数组，但布尔数组的形状必须和所进行筛选的数组形状相同，否则会报错。</li>
-<li>使用布尔数组索引数据时，总是生成数据的拷贝，即使返回数组与原数组相同。</li>
-<li><code>~</code>这符号可以在你想要对一个通用条件取反时使用</li>
-<li>可以使用数学操作符<code>&amp;</code>和<code>|</code>进行与和或的逻辑运算</li>
-</ul>
-<p>今日完毕。。。。</p>
+<h5 id="一元通用函数"><a href="#一元通用函数" class="headerlink" title="一元通用函数"></a>一元通用函数</h5><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abs，fabs</td>
+<td align="center">对每个元素（整数，浮点数或复数）进行取绝对值</td>
+</tr>
+<tr>
+<td>sqrt</td>
+<td align="center">计算每个元素的平方根（与arr ** 0.5相等）</td>
+</tr>
+<tr>
+<td>square</td>
+<td align="center">计算每个元素的平方（与arr ** 2相等）</td>
+</tr>
+</tbody></table>
+<h5 id="二元通用函数"><a href="#二元通用函数" class="headerlink" title="二元通用函数"></a>二元通用函数</h5><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add</td>
+<td align="center">将数组对应元素相加</td>
+</tr>
+<tr>
+<td>subtract</td>
+<td align="center">在第二个元素中，去除第一个数组所含的元素</td>
+</tr>
+<tr>
+<td>multiply</td>
+<td align="center">将数组对应元素相乘</td>
+</tr>
+<tr>
+<td>divide，floor_divide</td>
+<td align="center">除或整除</td>
+</tr>
+<tr>
+<td>power</td>
+<td align="center">将第二个数组的元素作为第一个数组对应元素的幂次方</td>
+</tr>
+<tr>
+<td>maximum，fmax</td>
+<td align="center">逐个元素的计算最大值，fmax忽略NaN</td>
+</tr>
+<tr>
+<td>minimum，fmin</td>
+<td align="center">逐个元素的计算最小值，fmin忽略NaN</td>
+</tr>
+<tr>
+<td>mod</td>
+<td align="center">按元素的求模计算（即求除法的余数）</td>
+</tr>
+<tr>
+<td>copysign</td>
+<td align="center">将第一个数组的符号值改为第二个数组的符号值</td>
+</tr>
+<tr>
+<td>greater，less，equal，greater_equal……</td>
+<td align="center">进行逐个元素比较，返回布尔值数组（与数字&gt;，&lt;，==，&gt;=……）</td>
+</tr>
+<tr>
+<td>logical_and，logical_or，logical_xor</td>
+<td align="center">进行逐个元素的逻辑操作（与逻辑操作符&amp;，|，^效果一致）</td>
+</tr>
+</tbody></table>
+<h5 id="meshgrid函数"><a href="#meshgrid函数" class="headerlink" title="meshgrid函数"></a>meshgrid函数</h5><p>meshgrid函数是用两个坐标轴上的点在平面上画网格。<br>用法：<br>　　[X,Y]=meshgrid(x,y)<br>　　[X,Y]=meshgrid(x)与[X,Y]=meshgrid(x,x)是等同的<br>　　[X,Y,Z]=meshgrid(x,y,z)生成三维数组，可用来计算三变量的函数和绘制三维立体图</p>
+<p>​    就拿[X,Y]=meshgrid(x,y)第一个用法举例，该函数将向量x和y定义的区域转换成矩阵X和Y,其中矩阵X的行向量是向量x的<strong>简单复制</strong>，而矩阵Y的列向量是向量y的<strong>简单复制</strong>，假设<strong>x</strong>是长度为<strong>m</strong>的向量，<strong>y</strong>是长度为<strong>n</strong>的向量，则最终生成的矩阵X和Y的维度都是 <strong>n*m</strong> 。</p>
 
         </div>
 
@@ -290,13 +354,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/03/01/PycharmError(1)/"
+                           href="/2022/03/10/numpy%E5%9F%BA%E7%A1%80%EF%BC%884%EF%BC%89-%E8%AE%A1%E7%AE%97/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">PycharmError:failed to send plot to http://127.0.0.1:63342</span>
+                                <span class="post-nav-title-item">numpy基础（4）-计算</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -306,10 +370,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/27/numpy%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/"
+                           href="/2022/03/01/PycharmError(1)/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy基础（1）</span>
+                                <span class="post-nav-title-item">PycharmError:failed to send plot to http://127.0.0.1:63342</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -504,7 +568,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy"><span class="nav-text">numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NumPy%E6%95%B0%E7%BB%84%E7%AE%97%E6%9C%AF"><span class="nav-text">NumPy数组算术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="nav-text">基础索引与切片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#copy%E5%87%BD%E6%95%B0%E5%A4%8D%E5%88%B6"><span class="nav-text">copy函数复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E7%B4%A2%E5%BC%95"><span class="nav-text">布尔索引</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ndarray%E6%95%B0%E6%8D%AE"><span class="nav-text">ndarray数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87"><span class="nav-text">进阶索引和切片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A5%9E%E5%A5%87%E7%B4%A2%E5%BC%95"><span class="nav-text">神奇索引</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C"><span class="nav-text">数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E8%BD%AC%E7%BD%AE%E5%92%8C%E6%8D%A2%E8%BD%B4"><span class="nav-text">数组转置和换轴</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%86%85%E7%A7%AF"><span class="nav-text">矩阵的内积</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%87%BD%E6%95%B0%E2%80%93%E5%BF%AB%E9%80%9F%E7%9A%84%E6%97%8F%E5%85%83%E7%B4%A0%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0"><span class="nav-text">通用函数–快速的族元素数组函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E9%80%9A%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">一元通用函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E9%80%9A%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">二元通用函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#meshgrid%E5%87%BD%E6%95%B0"><span class="nav-text">meshgrid函数</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
