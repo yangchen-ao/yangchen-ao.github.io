@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
         </span>
     
     
@@ -233,12 +233,14 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if 条件表达式:</span><br><span class="line">	语句/语句块</span><br></pre></td></tr></table></figure>
 
 <p>其中，条件表达式可以是逻辑表达式、关系表达式、算术表达式等等，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 10</span><br><span class="line">if a&gt;5:  # 如果a大于5则执行下面的语句</span><br><span class="line">	print(a)  # 打印变量a</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = 10</span><br><span class="line">b = 1</span><br><span class="line">if a&gt;5:  # 如果a大于5则执行下面的语句</span><br><span class="line">	print(a)  # 打印变量a</span><br><span class="line">print(b) # 无论如何都会打印b</span><br></pre></td></tr></table></figure>
 
 <h4 id="双分支选择结构"><a href="#双分支选择结构" class="headerlink" title="双分支选择结构"></a>双分支选择结构</h4><p>if-else 双分支结构如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if 条件表达式:</span><br><span class="line">	语句1/语句块1</span><br><span class="line">else:</span><br><span class="line">	语句2/语句块2</span><br></pre></td></tr></table></figure>
 
 <p>当if条件不成立，则执行语句块2，否则执行语句块1</p>
+<p>二分支结构还有一种更简洁的表达方式，适合通过判断返回特定值，语法格式如下：</p>
+<p>&lt;表达式1&gt; if &lt;条件&gt; else &lt;表达式2&gt;</p>
 <h4 id="多分支选择结构"><a href="#多分支选择结构" class="headerlink" title="多分支选择结构"></a>多分支选择结构</h4><p>多分支选择结构的语法格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if 条件表达式1:</span><br><span class="line">  语句1/语句块1</span><br><span class="line">elif 条件表达式2:</span><br><span class="line">  语句2/语句块2</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">elif 条件表达式n:</span><br><span class="line">  语句n/语句块n</span><br><span class="line">[else:</span><br><span class="line">  语句n+1/语句块n+1</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
@@ -246,6 +248,7 @@
 <ul>
 <li>计算机行业，描述语法格式时，使用中括号[ ]通常表示可选，非必选，多分支结构中最后的 else 是可选的。</li>
 <li>每个分支之间是有自己的逻辑的，不能随意颠倒顺序。</li>
+<li>依次评估寻找第一个结果为True的条件，执行该条件下的语句块，同时结束后跳过整个if-elif-else结构，执行后面的语句。如果没有任何条件成立，else下面的语句块被执行。</li>
 <li>python不建议if-else嵌套结构，尽量使用if-elif-else的多分支选择结构。</li>
 </ul>
 <h4 id="三元条件运算符"><a href="#三元条件运算符" class="headerlink" title="三元条件运算符"></a>三元条件运算符</h4><p>Python 提供了三元运算符，三元运算符是条件语句中比较简练的一种赋值方式，用来在某些简单双分支赋值情况。三元运算符的语法结构如下：</p>
@@ -274,6 +277,7 @@
 <li>range(1,11)：返回一个1到10的可迭代对象，1为start参数，默认从0开始。</li>
 <li>range(1,11,2)返回一个1到10步长为2的可迭代对象，2为step参数，即每次递增的值为2，默认为1。</li>
 <li>range(11,1,-2)步长为负数，表示每次递减的值为2，从11开始。</li>
+<li>如果r[0]的值不满足上述约束条件，则range对象将是空的。</li>
 </ul>
 <p>遍历字符串，即对每个字符进行操作，例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in &#x27;hello world&#x27;:</span><br><span class="line">	print(i，end=&#x27;&#x27;) #打印hello world</span><br></pre></td></tr></table></figure>
@@ -339,10 +343,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/05/python%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"
+                           href="/2022/02/05/python%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础（2）-运算符和基础语法</span>
+                                <span class="post-nav-title-item">python基础（2）-变量类型和运算符</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
