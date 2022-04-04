@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="薛丰琉">
+    
+    <title>
+        
+            环境搭建和基础语法 |
+        
+        小薛的储物间
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/icon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"xiaowog.top","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/tou.jpg","favicon":"/images/icon.png","article_img_align":"cneter","left_side_width":"200px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                小薛的储物间
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">环境搭建和基础语法</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/tou.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">薛丰琉</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-02-03 10:16:17</span>
+        <span class="mobile">2022-02-03 10:16</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/">python基础</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="win11搭建python环境"><a href="#win11搭建python环境" class="headerlink" title="win11搭建python环境"></a>win11搭建python环境</h3><h4 id="下载anaconda安装包"><a href="#下载anaconda安装包" class="headerlink" title="下载anaconda安装包"></a>下载<a class="link" target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual">anaconda<i class="fas fa-external-link-alt"></i></a>安装包</h4><p><img lazyload src="/images/loading.svg" data-src="1.png" alt="1"></p>
+<p>打开安装包，一路点next就好，更改路径时，<strong>路径里面请不要带中文、空格</strong>，否则报错很麻烦。</p>
+<p>然后配置anaconda环境配置：右击桌面选择显示设置，然后在系统关于中找到高级系统设置，然后点击环境变量，</p>
+<p><img lazyload src="/images/loading.svg" data-src="2.png" alt="2"></p>
+<p><img lazyload src="/images/loading.svg" data-src="3.png" alt="3"></p>
+<p><img lazyload src="/images/loading.svg" data-src="4.png" alt="4"></p>
+<p>然后在用户变量中编辑Path，</p>
+<p><img lazyload src="/images/loading.svg" data-src="5.png" alt="5"></p>
+<p>新建四个路径，</p>
+<p><img lazyload src="/images/loading.svg" data-src="6.png" alt="6"></p>
+<p>然后在cmd中验证，输入python，</p>
+<p><img lazyload src="/images/loading.svg" data-src="7.png" alt="7"></p>
+<p>如果跳转到windows应用商店中，你只需把那四条路径上移置顶即可。</p>
+<h4 id="下载Pycharm"><a href="#下载Pycharm" class="headerlink" title="下载Pycharm"></a><strong>下载Pycharm</strong></h4><p>他家的开发工具非常好用，因为专业版付费，所以我们只需下载社区版即可，想要专业版的也可私聊我，<a class="link" target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/#section=windows">下载地址<i class="fas fa-external-link-alt"></i></a></p>
+<p><img lazyload src="/images/loading.svg" data-src="8.png" alt="8"></p>
+<p>有了 exe 文件双击打开一路点 next 就可以了，安装完成，打开pycharm，点击New  Project，</p>
+<p><img lazyload src="/images/loading.svg" data-src="9.png" alt="9"></p>
+<p>然后把 Location 换成自己选择的路径，然后点击红色标注出来三角，然后选择第二个，选择的就是刚刚咱们安装的 anaconda 环境目录中的 python.exe 执行文件，后“create”就好。</p>
+<p><img lazyload src="/images/loading.svg" data-src="10.png" alt="10"></p>
+<p>然后右击文件，新建 python file，</p>
+<p><img lazyload src="/images/loading.svg" data-src="11.png" alt="11"></p>
+<h4 id="下表为Pycharm常用快捷键"><a href="#下表为Pycharm常用快捷键" class="headerlink" title="下表为Pycharm常用快捷键"></a>下表为Pycharm常用快捷键</h4><table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ctrl + /</td>
+<td align="center">注释/反注释代码</td>
+</tr>
+<tr>
+<td align="center">ctrl + alt + l</td>
+<td align="center">格式化代码</td>
+</tr>
+<tr>
+<td align="center">F2</td>
+<td align="center">快速定位到错误代码</td>
+</tr>
+<tr>
+<td align="center">alt + enter</td>
+<td align="center">万能代码修复快捷键</td>
+</tr>
+<tr>
+<td align="center">ctrl + j</td>
+<td align="center">显示可用的代码</td>
+</tr>
+<tr>
+<td align="center">ctrl + d / ctrl + y</td>
+<td align="center">复制/删除一行代码</td>
+</tr>
+</tbody></table>
+<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><h4 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h4><p>不必记，认识就好（知道他是保留字就好，因为后面变量命名会用），可以通过代码<code>help(&quot;keywords&quot;)</code> 来查看，后面也会提到。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;False&#x27;, &#x27;None&#x27;, &#x27;True&#x27;, &#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;nonlocal&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>注释符号包括<code># 内容</code> <code>&quot;&quot;&quot;内容&quot;&quot;&quot;</code>。</p>
+<p>块注释时，<code>#</code>后空一格</p>
+<p>行内注释时，至少使用两个空格和语句分开，<code>#</code>后空一格。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x + 1  # 边框加粗一个像素</span><br></pre></td></tr></table></figure>
+
+<p>docstring 最其本的两点：</p>
+<p>所有的公共模块、函数、类、方法，都应该写 docstring。</p>
+<p>私有方法不一定需要，但应该在 def 后提供一个块注释来说明。</p>
+<p>docstring 的结束”””应该独占一行，除非此 docstring 只有一行。</p>
+<h4 id="代码的组织和缩进"><a href="#代码的组织和缩进" class="headerlink" title="代码的组织和缩进"></a>代码的组织和缩进</h4><p>Python 语言是通过缩进来组织代码块，所以“缩进”成为了 Python 语法强制的规定。缩进时，几个空格都是允许的，但必须同意，通常采用“四个空格”表示一个缩进，一般等于一个tab键（某些地方bushi）。</p>
+<p>二元运算符两边各空一格。</p>
+<h4 id="多行语句"><a href="#多行语句" class="headerlink" title="多行语句"></a>多行语句</h4><p>Python 通常是一行写一条语句，但如果语句很长（每行代码尽量不超过80个字符），我们可以使用反斜杠 \ 来实现多行语句，注意二元运算符要行末（无空格），例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total = item_one +\</span><br><span class="line">        item_two +\</span><br><span class="line">        item_three</span><br></pre></td></tr></table></figure>
+
+<p>在 [], {}, 或 () 中的多行语句，不需要使用反斜杠 \，但第二行缩进要到括号的起始处，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">total = [&#x27;item_one&#x27;, &#x27;item_two&#x27;, &#x27;item_three&#x27;,</span><br><span class="line">        &#x27;item_four&#x27;, &#x27;item_five&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h4><ul>
+<li>应避免使用小写字母 l(L)，大写字母 O(o) 或 I(i) 单独作为一个变量的名称，以区分数字 1 和 0</li>
+<li>包和模块使用全小写命名，尽量不要使用下划线</li>
+<li>类名使用 CamelCase 命名风格，内部类可用一个下划线开头</li>
+<li>函数使用下划线分隔的小写命名</li>
+<li>当参数名称和 Python 保留字冲突，可在最后添加一个下划线，而不是使用缩写或自造的词</li>
+</ul>
+<h4 id="导入第三方库"><a href="#导入第三方库" class="headerlink" title="导入第三方库"></a>导入第三方库</h4><p>import 语句应分行写在文件开头，置于模块说明及 docstring 之后，于全局变量之前。</p>
+<p>三种导入方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">from math import *</span><br><span class="line">form math import pi</span><br></pre></td></tr></table></figure>
+
+<h4 id="函数查询"><a href="#函数查询" class="headerlink" title="函数查询"></a>函数查询</h4><p>python help()</p>
+<ul>
+<li>查看python所有的modules：<code>help(&quot;modules&quot;)</code></li>
+<li>单看python所有的modules中包含指定字符串的modules： <code>help(&quot;modules yourstr&quot;)</code></li>
+<li>查看python中常见的topics： <code>help(&quot;topics&quot;)</code></li>
+<li>查看python标准库中的module：<code>import os.path</code> + <code>help(&quot;os.path&quot;)</code></li>
+<li>查看python内置的类型：<code>help(&quot;list&quot;)</code></li>
+<li>查看python类型的成员方法：<code>help(&quot;str.find&quot;)</code></li>
+<li>查看python内置函数：<code>help(&quot;open&quot;) / open(open)</code>，也可以用 <code>?open</code> <code>??open</code></li>
+</ul>
+<p>dir(str)也可以查看所有字符串使用的方法。</p>
+<h4 id="常用内建函数"><a href="#常用内建函数" class="headerlink" title="常用内建函数"></a>常用内建函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>input</td>
+<td>其从标准输入中读入一个字符串，并自动忽略换行符，可以向其传输提示字符串（ 获得用户输入之前的 一些提示性文字）</td>
+</tr>
+<tr>
+<td><a href="https://xiaowog.top/2022/02/08/python%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86%EF%BC%881%EF%BC%89/">eval</a></td>
+<td>将字符串当成有效的表达式 来求值 并 返回计算结果。</td>
+</tr>
+<tr>
+<td><a href="https://xiaowog.top/2022/02/08/python%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86%EF%BC%881%EF%BC%89/">print</a></td>
+<td>打印计算结果，默认换行，可以通过end参数来调整以什么结束</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/python%E5%9F%BA%E7%A1%80/">#python基础</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/02/05/02.05-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">变量类型和运算符</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/01/%E5%A3%81%E7%BA%B8%E7%BD%91%E7%AB%99%E6%94%B6%E5%BD%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">壁纸网站收录</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'cddfa53ccaf70f707bcc',
+                    clientSecret: '79a7c06b16924ca3ddb59a8c9326e5abb776f371',
+                    repo: 'blog-talk',
+                    owner: 'yangchen-ao',
+                    admin: ['yangchen-ao'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">薛丰琉</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#win11%E6%90%AD%E5%BB%BApython%E7%8E%AF%E5%A2%83"><span class="nav-text">win11搭建python环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDanaconda%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-text">下载anaconda安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDPycharm"><span class="nav-text">下载Pycharm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%A1%A8%E4%B8%BAPycharm%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">下表为Pycharm常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E5%AD%97"><span class="nav-text">保留字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BB%84%E7%BB%87%E5%92%8C%E7%BC%A9%E8%BF%9B"><span class="nav-text">代码的组织和缩进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E8%AF%AD%E5%8F%A5"><span class="nav-text">多行语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-text">命名规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="nav-text">导入第三方库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%9F%A5%E8%AF%A2"><span class="nav-text">函数查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-text">常用内建函数</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
