@@ -9,7 +9,7 @@
     
     <title>
         
-            Hexo博客遇到的坑（1） |
+            numpy操作 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hexo博客遇到的坑（1）</span>
+            <span class="title-hover-animation">numpy操作</span>
         </div>
 
         
@@ -188,21 +188,32 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-01-30 19:07:25</span>
-        <span class="mobile">2022-01-30 19:07</span>
+        <span class="pc">2022-03-13 09:20:15</span>
+        <span class="mobile">2022-03-13 09:20</span>
     </span>
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>403 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>761 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -218,24 +229,81 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="1-基于Hexo和Github搭建的博客，手机端访问不了，怎么办？"><a href="#1-基于Hexo和Github搭建的博客，手机端访问不了，怎么办？" class="headerlink" title="1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？"></a>1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？</h3><p>​    因为是在国内，所以无论是访问Github还是Github所提供的服务都是不稳定的。电脑端能访问的原因大概率是因为科学上网的缘故，手机端无法访问是因为其拒绝了域名解析所用的ip地址。</p>
-<p>解决方法：</p>
-<p>​    重新ping一下你的GitHub项目的地址，打开命令提示符cmd，输入<em><strong>ping 仓库名</strong></em>，如下图：</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo1.png" alt="1"></p>
-<p>​    可以知道当前ip是185.199.109.153</p>
-<p>​    然后到域名DNS解析中，添加A记录值为上述ping到的ip，到此可以解决了。</p>
-<h3 id="2-Typora（Markdown）可以载入本地图片，而网页无法载入？"><a href="#2-Typora（Markdown）可以载入本地图片，而网页无法载入？" class="headerlink" title="2.Typora（Markdown）可以载入本地图片，而网页无法载入？"></a>2.Typora（Markdown）可以载入本地图片，而网页无法载入？</h3><p>原因：本地图片是靠相对路径载入的，而当上传网页时，它们的相对路径会发生改变。</p>
-<p>解决方法：</p>
-<p>​    在blog目录下打开git控制台，安装图片插件，输入<em><strong>npm install hexo-asset-image –save</strong></em>。</p>
-<p>​    然后打开blog目录下的_config.yml文件，将<strong>post_asset_folder</strong>改为<strong>true</strong>。</p>
-<p>​    然后重新new一个md文件，或者在原md文件处新建一个同名的文件夹来存放照片，将相对路径直接改成照片名，因为当你上传网页时，他们会被放入同一个文件夹。</p>
-<p><img lazyload src="/images/loading.svg" data-src="hexo2.png" alt="2"></p>
-<p>​    我也被上述问题困扰了一下午，网上的方法大部分不好使，当然也有提出别的备用方案，如用gitee代替github，采用图床的方法等等，但都不符合我的预期，所以做了这个博客希望能给各位提供帮助。</p>
+            <h3 id="numpy库"><a href="#numpy库" class="headerlink" title="numpy库"></a>numpy库</h3><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p>和python的内建列表相似，ndarray数据也可以使用sort方法进行排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(6)</span><br><span class="line">print(arr.sort)</span><br></pre></td></tr></table></figure>
+
+<p>在多维函数中，你可以通过传递一个参数axis来指定沿着哪一轴向进行排序，例如<code>arr.sort(axis = 0)</code>为对每一列进行拷贝</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(3,4)</span><br><span class="line">print(arr.sort(axis=0))</span><br><span class="line"></span><br><span class="line"># 对每一行进行排序</span><br><span class="line">print(arr.sort(1))</span><br></pre></td></tr></table></figure>
+
+<p>同样的，和其他方法相似，他返回的是原数组的视图，可以通过修改视图来修改原数组，而顶层的<code>np.sort</code>函数返回的是对原数组的拷贝，而不是视图。</p>
+<p>在没有把握之前可以先用顶层函数进行排序，保留原数组，避免对原数组进行直接修改。</p>
+<h4 id="基础集合操作"><a href="#基础集合操作" class="headerlink" title="基础集合操作"></a>基础集合操作</h4><h5 id="唯一值排序"><a href="#唯一值排序" class="headerlink" title="唯一值排序"></a>唯一值排序</h5><p>numpy库中包含了一些对一维ndarray数组进行操作的方法，其中，最常用的一个函数就是<code>np.unique</code>，返回数组中唯一值的排序后形成的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([1,2,3,5,8,1,4,2,3,8,5])</span><br><span class="line">print(np.unique(arr)) # [1,2,3,4,5,8]</span><br><span class="line">arr1 = np.array([&#x27;Joe&#x27;,&#x27;Jack&#x27;,&#x27;Jack&#x27;,&#x27;BOb&#x27;,&#x27;Will&#x27;,&#x27;BOb&#x27;,&#x27;Joe&#x27;])</span><br><span class="line">print(np.unique(arr1))</span><br></pre></td></tr></table></figure>
+
+<h5 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h5><p>另一个常用的函数，<code>np.in1d</code>可以检查一个数组中的值是否在另一个数组中，并返回一个布尔值数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">valus = arr.array([6,0,0,3,4,7])</span><br><span class="line">print(np.unique(valus,[2,3,6]))</span><br></pre></td></tr></table></figure>
+
+<h5 id="集合操作总结"><a href="#集合操作总结" class="headerlink" title="集合操作总结"></a>集合操作总结</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>unique(x)</td>
+<td>计算x数组的唯一值，并排序</td>
+</tr>
+<tr>
+<td>intersect1d(x,y)</td>
+<td>计算x和y的交集，并排序</td>
+</tr>
+<tr>
+<td>union1d(x,y)</td>
+<td>计算x和y的并集，并排序</td>
+</tr>
+<tr>
+<td>setdiff1d(x,y)</td>
+<td>差集，计算不在y中的x元素</td>
+</tr>
+<tr>
+<td>in1d(x,y)</td>
+<td>计算x中的元素是否包含在y中，返回一个布尔值数组</td>
+</tr>
+<tr>
+<td>setxor1d(x,y)</td>
+<td>异或集，在x中或在y中，但不是属于x，y交集的元素</td>
+</tr>
+</tbody></table>
+<h4 id="文件的输入和输出"><a href="#文件的输入和输出" class="headerlink" title="文件的输入和输出"></a>文件的输入和输出</h4><p>Numpy可以将数据以文本或二进制文件的形式储存到硬盘中，也可以将储存在硬盘中的文件读取出来。利用到的函数为<code>np.save()</code>和<code>np.load()</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(10)</span><br><span class="line">np.save(&#x27;some_array&#x27;,arr)</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就把arr数组存到文件some_array.npy中了，可以看出，如果文件存放路径中没有写文件类型，他会默认加上**.npy**。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.load(&#x27;some_array.npy&#x27;)</span><br><span class="line">print(arr1)</span><br></pre></td></tr></table></figure>
+
+<p>此时，文件名中必须加后缀文件类型。</p>
+<p>你也可以使用<code>np.savez</code>将多个数组以字典(未压缩)的形式保存在同一个**.npz**文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.arange(5)</span><br><span class="line">arr2 = np.arange(5,10)</span><br><span class="line">np.savez(&#x27;array_achive.npz&#x27;,a=arr1,b=arr2)</span><br></pre></td></tr></table></figure>
+
+<p>当你载入一个**.npz**文件的时候，你会获得一个字典型的对象，进而获得一个单个数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch = np.load(&#x27;array_achive.npz&#x27;)</span><br><span class="line">print(arch[b])</span><br></pre></td></tr></table></figure>
+
+<p>而np.savez_compressed将多个数组以压缩的形式保存在同一个**.npz**文件中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.arange(5)</span><br><span class="line">arr2 = np.arange(5,10)</span><br><span class="line">np.savez_compressed(&#x27;arrays_compressed.npz&#x27;,a=arr1,b=arr2)</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
         
 
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
+                    </li>
+                
+            </ul>
         
 
         
@@ -244,13 +312,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/02/01/%E5%A3%81%E7%BA%B8%E7%BD%91%E7%AB%99%E6%94%B6%E5%BD%95/"
+                           href="/2022/03/13/03.13-numpy%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">壁纸网站收录</span>
+                                <span class="post-nav-title-item">numpy常用函数</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -260,10 +328,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/01/30/Hexo%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/"
+                           href="/2022/03/10/03.10-numpy%E8%AE%A1%E7%AE%97/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hexo博客遇到的坑</span>
+                                <span class="post-nav-title-item">numpy计算</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -458,7 +526,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E4%BA%8EHexo%E5%92%8CGithub%E6%90%AD%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%8C%E6%89%8B%E6%9C%BA%E7%AB%AF%E8%AE%BF%E9%97%AE%E4%B8%8D%E4%BA%86%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-text">1.基于Hexo和Github搭建的博客，手机端访问不了，怎么办？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Typora%EF%BC%88Markdown%EF%BC%89%E5%8F%AF%E4%BB%A5%E8%BD%BD%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%EF%BC%8C%E8%80%8C%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E8%BD%BD%E5%85%A5%EF%BC%9F"><span class="nav-text">2.Typora（Markdown）可以载入本地图片，而网页无法载入？</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E5%BA%93"><span class="nav-text">numpy库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C"><span class="nav-text">基础集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E5%80%BC%E6%8E%92%E5%BA%8F"><span class="nav-text">唯一值排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="nav-text">包含关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="nav-text">集合操作总结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA"><span class="nav-text">文件的输入和输出</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
