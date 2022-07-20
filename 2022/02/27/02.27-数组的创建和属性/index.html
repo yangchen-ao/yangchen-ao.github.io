@@ -9,7 +9,7 @@
     
     <title>
         
-            数组的创建和属性 |
+            numpy数组的创建和属性 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">数组的创建和属性</span>
+            <span class="title-hover-animation">numpy数组的创建和属性</span>
         </div>
 
         
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>987 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>614 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -237,116 +237,17 @@
 <li>内存量小。</li>
 </ul>
 <p><strong>注：一下numpy全用缩写np来表示。</strong></p>
-<h4 id="数组的创建"><a href="#数组的创建" class="headerlink" title="数组的创建"></a>数组的创建</h4><h5 id="array创建"><a href="#array创建" class="headerlink" title="array创建"></a>array创建</h5><p>​    array函数可以把任意的序列型对象转换成数组，默认通过复制来创建数组数据。语法格式：</p>
-<p><code>np.array(object, dtype=None, copy=True, order=None,ndmin=0)</code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>object</td>
-<td>表示一个数组序列</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>可选参数，可以指定数组的数据类型</td>
-</tr>
-<tr>
-<td>copy</td>
-<td>可选参数，表示数组是否进行复制</td>
-</tr>
-<tr>
-<td>order</td>
-<td>创建数组的样式，C为行方向，F为列方向，A为任意方向（默认）</td>
-</tr>
-<tr>
-<td>ndmin</td>
-<td>用于指定数组的最小维度。</td>
-</tr>
-</tbody></table>
-<p>创建一维数组：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data0 = np.array([1,2,3,1])</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
+<h4 id="ndarray的创建"><a href="#ndarray的创建" class="headerlink" title="ndarray的创建"></a>ndarray的创建</h4><h5 id="array函数的创建"><a href="#array函数的创建" class="headerlink" title="array函数的创建"></a>array函数的创建</h5><p>​    array函数可以把任意的序列型对象转换成ndarray数组。通过复制来创建ndarray数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建一维数组</span><br><span class="line">data0 = np.array([1,2,3,1])</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
 
-<p>创建二维数组：</p>
-<p>嵌套序列的元素的长度相同</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data1 = np.array([[1,2,3,4],[5,6,7,8]])</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建二维数组，嵌套序列（序列元素的长度相同）</span><br><span class="line">data1 = np.array([[1,2,3,4],[5,6,7,8]])</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
 
-<p>创建三维数组：</p>
-<p>使用ndmin参数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data3 = np.array([1, 2, 3, 4, 5, 6], ndmin=3)</span><br><span class="line">print(data3)</span><br><span class="line"># 输出为[[[1 2 3 4 5 6]]]</span><br></pre></td></tr></table></figure>
+<h5 id="asarray函数创建"><a href="#asarray函数创建" class="headerlink" title="asarray函数创建"></a>asarray函数创建</h5><p>​    类似于array，同样是将输入数据转换成ndarray数组。但如何输入已经是ndarray数据则不再进行复制。</p>
+<h5 id="arange函数创建"><a href="#arange函数创建" class="headerlink" title="arange函数创建"></a>arange函数创建</h5><p>arange类似于range，但arange返回值类型为ndarray数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建一维数组[0，1，2，3，4，5]</span><br><span class="line">data = np.arange(6)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
 
-<p>改变数组类型：</p>
-<p>使用参数dtype</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data4 = numpy.array([2,4,6,8],dtype=&quot;complex&quot;)</span><br><span class="line">print(data4)</span><br><span class="line"># 输出为[2.+0.j 4.+0.j 6.+0.j 8.+0.j]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.arange(start,end,step)</span><br><span class="line"># 起始于start，不包含end。start默认为0，step默认为1.</span><br></pre></td></tr></table></figure>
 
-<h5 id="asarray创建"><a href="#asarray创建" class="headerlink" title="asarray创建"></a>asarray创建</h5><p>​    类似于array，同样是将输入数据转换成ndarray数组。但如何输入已经是ndarray数据则不再进行复制，且默认order参数为C（行方向）。语法格式如下：</p>
-<p><code>np.asarray(a, dtype = None, order = None)</code></p>
-<h5 id="arange函数创建"><a href="#arange函数创建" class="headerlink" title="arange函数创建"></a>arange函数创建</h5><p>arange类似于range，但arange返回值类型为ndarray数组，用来创建给定数值范围的数组。语法格式如下：</p>
-<p><code>numpy.arange(start, stop, step, dtype)</code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>start</td>
-<td>起始值，默认为0</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>终止值，注意不包含</td>
-</tr>
-<tr>
-<td>step</td>
-<td>步长，默认为1</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>可选参数，修改数组的数据类型</td>
-</tr>
-</tbody></table>
-<p>创建一维数组[0，1，2，3，4，5]：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = np.arange(6)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
-
-<h5 id="linspace创建等差数组"><a href="#linspace创建等差数组" class="headerlink" title="linspace创建等差数组"></a>linspace创建等差数组</h5><p>在指定的数值区间内，返回均匀间隔的一维等差数组，默认均分 50 份，语法格式如下：</p>
-<p><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)</code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>start</td>
-<td>序列的起始值</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>序列的终止值</td>
-</tr>
-<tr>
-<td>num</td>
-<td>要生成的等步长的样本数量，默认为50</td>
-</tr>
-<tr>
-<td>endpoint</td>
-<td>该值为true时，数列中包stop值，反之不包含，默认是True。</td>
-</tr>
-<tr>
-<td>retstep</td>
-<td>如果为 True 时，生成的数组中会显示间距，反之不显示。</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>数组的数据类型</td>
-</tr>
-</tbody></table>
 <h5 id="特殊创建"><a href="#特殊创建" class="headerlink" title="特殊创建"></a>特殊创建</h5><p>ones，zeros，empy函数分别创建全为1，全为0，和没有初始值的数组。</p>
 <p><strong>如果想要创建高维数组，需要给shape传递一个元组（创建一维数组时也可以用元组）</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建含十个元素的一维数组</span><br><span class="line">data1 = np.ones((10))</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
@@ -390,13 +291,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/02/28/02.28-numpy%E5%88%87%E7%89%87%E4%B8%8E%E7%B4%A2%E5%BC%95/"
+                           href="/2022/02/27/02.27-numpy%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B1%9E%E6%80%A7/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy切片与索引</span>
+                                <span class="post-nav-title-item">数组的创建和属性</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -406,10 +307,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/27/02.27-%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B1%9E%E6%80%A7/"
+                           href="/2022/02/25/anaconda%E9%97%AE%E9%A2%98/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy数组的创建和属性</span>
+                                <span class="post-nav-title-item">anaconda问题</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -604,7 +505,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy"><span class="nav-text">numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">数组的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#array%E5%88%9B%E5%BB%BA"><span class="nav-text">array创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#asarray%E5%88%9B%E5%BB%BA"><span class="nav-text">asarray创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#arange%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="nav-text">arange函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linspace%E5%88%9B%E5%BB%BA%E7%AD%89%E5%B7%AE%E6%95%B0%E7%BB%84"><span class="nav-text">linspace创建等差数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%88%9B%E5%BB%BA"><span class="nav-text">特殊创建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ndarray%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">ndarray的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy"><span class="nav-text">numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ndarray%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">ndarray的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#array%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">array函数的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#asarray%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="nav-text">asarray函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#arange%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="nav-text">arange函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%88%9B%E5%BB%BA"><span class="nav-text">特殊创建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ndarray%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">ndarray的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

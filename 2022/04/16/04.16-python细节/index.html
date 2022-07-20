@@ -9,7 +9,7 @@
     
     <title>
         
-            数组的创建和属性 |
+            python细节 |
         
         小薛的储物间
     </title>
@@ -169,7 +169,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">数组的创建和属性</span>
+            <span class="title-hover-animation">python细节</span>
         </div>
 
         
@@ -188,8 +188,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-02-27 15:20:16</span>
-        <span class="mobile">2022-02-27 15:20</span>
+        <span class="pc">2022-04-16 13:26:43</span>
+        <span class="mobile">2022-04-16 13:26</span>
     </span>
     
     
@@ -198,7 +198,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>&nbsp;
+                        <a href="/tags/python%E5%9D%91/">python坑</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,12 +208,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>987 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>774 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -229,146 +229,46 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h3><p>numpy数据类型（ndarray）的优点：</p>
-<ul>
-<li>Numpy 的数据储存在连续的内存块上。</li>
-<li>算法库是有c语言编写的，运行时间少，无需检查类型和其他操作。</li>
-<li>全局数组进行复杂计算无需循环</li>
-<li>内存量小。</li>
+            <h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li>字符串里的元素是不可改变</li>
+<li>字符串的加法是创建一个新字符串，而不是在原字符串后添加</li>
 </ul>
-<p><strong>注：一下numpy全用缩写np来表示。</strong></p>
-<h4 id="数组的创建"><a href="#数组的创建" class="headerlink" title="数组的创建"></a>数组的创建</h4><h5 id="array创建"><a href="#array创建" class="headerlink" title="array创建"></a>array创建</h5><p>​    array函数可以把任意的序列型对象转换成数组，默认通过复制来创建数组数据。语法格式：</p>
-<p><code>np.array(object, dtype=None, copy=True, order=None,ndmin=0)</code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>object</td>
-<td>表示一个数组序列</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>可选参数，可以指定数组的数据类型</td>
-</tr>
-<tr>
-<td>copy</td>
-<td>可选参数，表示数组是否进行复制</td>
-</tr>
-<tr>
-<td>order</td>
-<td>创建数组的样式，C为行方向，F为列方向，A为任意方向（默认）</td>
-</tr>
-<tr>
-<td>ndmin</td>
-<td>用于指定数组的最小维度。</td>
-</tr>
-</tbody></table>
-<p>创建一维数组：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data0 = np.array([1,2,3,1])</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
-
-<p>创建二维数组：</p>
-<p>嵌套序列的元素的长度相同</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data1 = np.array([[1,2,3,4],[5,6,7,8]])</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
-
-<p>创建三维数组：</p>
-<p>使用ndmin参数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data3 = np.array([1, 2, 3, 4, 5, 6], ndmin=3)</span><br><span class="line">print(data3)</span><br><span class="line"># 输出为[[[1 2 3 4 5 6]]]</span><br></pre></td></tr></table></figure>
-
-<p>改变数组类型：</p>
-<p>使用参数dtype</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data4 = numpy.array([2,4,6,8],dtype=&quot;complex&quot;)</span><br><span class="line">print(data4)</span><br><span class="line"># 输出为[2.+0.j 4.+0.j 6.+0.j 8.+0.j]</span><br></pre></td></tr></table></figure>
-
-<h5 id="asarray创建"><a href="#asarray创建" class="headerlink" title="asarray创建"></a>asarray创建</h5><p>​    类似于array，同样是将输入数据转换成ndarray数组。但如何输入已经是ndarray数据则不再进行复制，且默认order参数为C（行方向）。语法格式如下：</p>
-<p><code>np.asarray(a, dtype = None, order = None)</code></p>
-<h5 id="arange函数创建"><a href="#arange函数创建" class="headerlink" title="arange函数创建"></a>arange函数创建</h5><p>arange类似于range，但arange返回值类型为ndarray数组，用来创建给定数值范围的数组。语法格式如下：</p>
-<p><code>numpy.arange(start, stop, step, dtype)</code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>start</td>
-<td>起始值，默认为0</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>终止值，注意不包含</td>
-</tr>
-<tr>
-<td>step</td>
-<td>步长，默认为1</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>可选参数，修改数组的数据类型</td>
-</tr>
-</tbody></table>
-<p>创建一维数组[0，1，2，3，4，5]：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = np.arange(6)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
-
-<h5 id="linspace创建等差数组"><a href="#linspace创建等差数组" class="headerlink" title="linspace创建等差数组"></a>linspace创建等差数组</h5><p>在指定的数值区间内，返回均匀间隔的一维等差数组，默认均分 50 份，语法格式如下：</p>
-<p><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)</code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>start</td>
-<td>序列的起始值</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>序列的终止值</td>
-</tr>
-<tr>
-<td>num</td>
-<td>要生成的等步长的样本数量，默认为50</td>
-</tr>
-<tr>
-<td>endpoint</td>
-<td>该值为true时，数列中包stop值，反之不包含，默认是True。</td>
-</tr>
-<tr>
-<td>retstep</td>
-<td>如果为 True 时，生成的数组中会显示间距，反之不显示。</td>
-</tr>
-<tr>
-<td>dtype</td>
-<td>数组的数据类型</td>
-</tr>
-</tbody></table>
-<h5 id="特殊创建"><a href="#特殊创建" class="headerlink" title="特殊创建"></a>特殊创建</h5><p>ones，zeros，empy函数分别创建全为1，全为0，和没有初始值的数组。</p>
-<p><strong>如果想要创建高维数组，需要给shape传递一个元组（创建一维数组时也可以用元组）</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建含十个元素的一维数组</span><br><span class="line">data1 = np.ones((10))</span><br><span class="line">print(data1)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建3行6列的二维数组</span><br><span class="line">data0 = np.zeros((3, 6))</span><br><span class="line">print(data0)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 创建3行5列的二维数组</span><br><span class="line">data_kong = np.empty((3, 5))</span><br><span class="line">print(data_kong)</span><br></pre></td></tr></table></figure>
-
-<p>注意：empty函数创建未初始化的数组，有可能返回垃圾值。</p>
-<h4 id="ndarray的属性"><a href="#ndarray的属性" class="headerlink" title="ndarray的属性"></a>ndarray的属性</h4><h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p>属性dtype，是一个特殊的对象—元数据(数据类型)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([1,2,3,4],dtype=np.float64)</span><br><span class="line">arr2 = np.array([1,2,3,4],dtype=np.int32)</span><br><span class="line">print(arr1.dtype)</span><br><span class="line">print(arr2.dtype)</span><br></pre></td></tr></table></figure>
-
-<p>dtype给强语言带来了”类型定义“</p>
-<p>可以通过<code>astype</code>进行数据类型的转换。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([1,2,3,4],dtype=np.int32)</span><br><span class="line">print(arr.dtype)</span><br><span class="line"></span><br><span class="line">float_arr = arr.astype(np.float64)</span><br><span class="line">print(float.dtype)</span><br></pre></td></tr></table></figure>
-
-<p>注意：从浮点数转换成整数，会直接舍弃小数点的。</p>
-<p>也可以把只是数字组成的字符串组成的元素转换成数字：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numeric_strings = np.array([&#x27;1.25&#x27;,&#x27;-9.6&#x27;,&#x27;42&#x27;],dtype=np.string_)</span><br><span class="line">numeric_strings.astype(np.float64)</span><br></pre></td></tr></table></figure>
-
-<p>​    尽量避免数据类型为numpy.string_，因为numpy会修正他的大小或和删除输入且不发出警告。后面的pandas会更好的处理这种情况。</p>
-<p>暂时到这。。。。</p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
+<li>列表复制方法：<code>b = list（a）</code>，无论a是否是列表，list函数都会进行复制产生一个新列表；<code>b = a.copy</code> 对列表a其进行显式复制；<strong>列表切片</strong>返回的是复制；列表的加法也是复制</li>
+<li>如何叠加列表：因为列表的加法是进行复制创建新列表，所以推荐extend()进行原地叠加</li>
+</ul>
+<h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h4><ul>
+<li>元组排序：用sorted函数实现该功能，不过得到的是一个列表，而不是元组</li>
+<li>元组创建：（）为空元组，而（42）为整数，ps : 小括号可以省略，但逗号不能省略</li>
+<li>元组的元素可以是可变元素，即可以为列表，集合，字典等</li>
+<li>元组时有序的，但集合是无序</li>
+</ul>
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><ul>
+<li>集合排序：集合虽然是无序的，但可以通过sorted函数得到一个已排序的列表</li>
+<li>set.update()把序列拆分之后，再添加进去</li>
+<li>set.discard(元素)，可以删除指定元素，元素不存在时不会报错</li>
+<li>集合的元素不能是<strong>可变类型数据</strong>，所以只能是整数，浮点数，复数，字符串类型，元组类型等</li>
+</ul>
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><ul>
+<li>dict.fromkeys(键，值)方法创建值为空的字典，所有键的值都为改值</li>
+<li>字典的键必须是不可变对象，不能为列表、字典、集合</li>
+<li>字典用sorted函数排序时，会得到一个由键组成的排序列表</li>
+<li>pop和popitem删除指定的键值对，并返回值对象</li>
+<li>update 方法可以用一个字典中的元素更新另外一个字典。该方法接收一个参数。该参数表示用作更新数据的字典数据源。如果 key 有重复，则直接覆盖，否则加入key-value</li>
+<li>访问问题：因为通过键来访问值，当键不存在时会抛出异常，所以推荐使用get方法来获取值，不存再时返回None或者默认值</li>
+<li>当for遍历字典时候，（for i in a:）i是字典a的键</li>
+</ul>
+<h4 id="int函数"><a href="#int函数" class="headerlink" title="int函数"></a>int函数</h4><p>int中的字符串可以为’     2’，’     2      ‘或者’\t 2 \n’，都会被转换成数字2，不用刻意去删这些空白字符。</p>
+<h4 id="type类型"><a href="#type类型" class="headerlink" title="type类型"></a>type类型</h4><p><strong>type(type(4.0))  为type类型</strong> class type</p>
+<h4 id="集合不能是可变类型数据的原因"><a href="#集合不能是可变类型数据的原因" class="headerlink" title="集合不能是可变类型数据的原因"></a>集合不能是可变类型数据的原因</h4><p>由于集合的唯一性，所以集合不含有可变类型数据。</p>
+<p>如<code>s = &#123;[12,23,34],[13,23,34],13,a&#125;</code>，当将第二个列表中的第一个元素修改为12的时候时，集合将会出错。</p>
+<h4 id="文档路径-反斜杠处理"><a href="#文档路径-反斜杠处理" class="headerlink" title="文档路径-反斜杠处理"></a>文档路径-反斜杠处理</h4><ul>
+<li>通过r进行转义，<code>r&#39;C:\User&#39;</code></li>
+<li>通过反斜杠进行对自身的转义，<code>‘\\’</code></li>
+<li>将反斜杠转换成<code>&#39;/&#39;</code></li>
+</ul>
+<h4 id="0-1-0-2-0-3返回为False"><a href="#0-1-0-2-0-3返回为False" class="headerlink" title="0.1+0.2 == 0.3返回为False"></a>0.1+0.2 == 0.3返回为False</h4><p>原因是浮点数精确度的问题，不是<code>==</code>的问题，浮点数本身就是不准确的。</p>
+<p>暂时只发现这个是这样的。</p>
 
         </div>
 
@@ -378,7 +278,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">#数据分析</a>&nbsp;
+                        <a href="/tags/python%E5%9D%91/">#python坑</a>&nbsp;
                     </li>
                 
             </ul>
@@ -390,13 +290,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/02/28/02.28-numpy%E5%88%87%E7%89%87%E4%B8%8E%E7%B4%A2%E5%BC%95/"
+                           href="/2022/04/23/04.23%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy切片与索引</span>
+                                <span class="post-nav-title-item">面向对象</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -406,10 +306,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/27/02.27-%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B1%9E%E6%80%A7/"
+                           href="/2022/03/23/03.23-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">numpy数组的创建和属性</span>
+                                <span class="post-nav-title-item">二分查找</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -604,7 +504,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy"><span class="nav-text">numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">数组的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#array%E5%88%9B%E5%BB%BA"><span class="nav-text">array创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#asarray%E5%88%9B%E5%BB%BA"><span class="nav-text">asarray创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#arange%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA"><span class="nav-text">arange函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linspace%E5%88%9B%E5%BB%BA%E7%AD%89%E5%B7%AE%E6%95%B0%E7%BB%84"><span class="nav-text">linspace创建等差数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%88%9B%E5%BB%BA"><span class="nav-text">特殊创建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ndarray%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">ndarray的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E5%85%B8"><span class="nav-text">字典</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int%E5%87%BD%E6%95%B0"><span class="nav-text">int函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type%E7%B1%BB%E5%9E%8B"><span class="nav-text">type类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E4%B8%8D%E8%83%BD%E6%98%AF%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">集合不能是可变类型数据的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E8%B7%AF%E5%BE%84-%E5%8F%8D%E6%96%9C%E6%9D%A0%E5%A4%84%E7%90%86"><span class="nav-text">文档路径-反斜杠处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-0-2-0-3%E8%BF%94%E5%9B%9E%E4%B8%BAFalse"><span class="nav-text">0.1+0.2 &#x3D;&#x3D; 0.3返回为False</span></a></li></ol>
     </div>
 </div>
         </aside>
